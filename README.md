@@ -15,6 +15,6 @@ Pictures are automatically uploaded to IPFS and the Content Identifier (CID - ha
 While **offline**:
 When offline, pictures are placed in a queue and uploaded to IPFS and Ethereum as soon as the app has internet access. The offline queue persists after the app is restarted. Tap the Offline Queue button to see files to be synced and see notifications when they're synced to IPFS. 
 
-Auditor image dashboard: https://pinata.cloud/pinexplorer
-Ethereum contract address: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885
-To see transactions sent to the contract: https://rinkeby.etherscan.io/address/0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885
+**Auditor image dashboard**: https://pinata.cloud/pinexplorer  
+**Ethereum contract address**: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
+**To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
