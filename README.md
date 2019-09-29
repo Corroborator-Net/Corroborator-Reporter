@@ -3,7 +3,7 @@
 use Xcode 10.3
 iOS 12
 
-Connect an iPhone with iOS version 12+ and hit run.
+Connect an iPhone with iOS version 12+, open the `.xcworkspace`, and hit run.
 
 Pictures are automatically uploaded to IPFS and the Content Identifier (CID - hash of the jpeg) is uploaded to the Ethereum Rinkeby network with accompanying metadata: time, location.
 
