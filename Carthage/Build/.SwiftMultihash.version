@@ -1,0 +1,10 @@
+{
+  "commitish" : "v2.0.8",
+  "iOS" : [
+    {
+      "name" : "SwiftMultihash",
+      "hash" : "d94bd10beb486f72b11d8731186a11582abc310796debb1ac7976d7d78e405b3",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ]
+}

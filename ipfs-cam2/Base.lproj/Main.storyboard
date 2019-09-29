@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3m-4J-hvz">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tA4-ZZ-0Wf">
+            <objects>
+                <navigationController id="f3m-4J-hvz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kJT-Zc-SVR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Z0K-Cf-UGM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvp-9q-HGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-752" y="113"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdB-Cp-h9x">
+                                <rect key="frame" x="134" y="772" width="146" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="N4g-vb-hOh"/>
+                                </constraints>
+                                <state key="normal" image="icons8-circle-64(1).png"/>
+                                <connections>
+                                    <action selector="TakePictureButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udW-Sz-EzV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pl4-Ds-KYY">
+                                <rect key="frame" x="312" y="772" width="82" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="vlb-Qq-Yk6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Offline Queue"/>
+                                <connections>
+                                    <action selector="GetPictureButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Af-k6-fz0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5FR-B4-MEi"/>
+                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="Fs5-pS-fSh"/>
+                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f0B-VE-ar4"/>
+                            <constraint firstItem="Pl4-Ds-KYY" firstAttribute="leading" secondItem="JdB-Cp-h9x" secondAttribute="trailing" constant="32" id="ims-lO-VTc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pl4-Ds-KYY" secondAttribute="trailing" constant="20" id="n87-ro-Alg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pl4-Ds-KYY" secondAttribute="bottom" id="qpc-Qj-GxN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kHi-G1-p6K"/>
+                    <connections>
+                        <segue destination="WKf-l4-w12" kind="show" id="mHU-1w-GzA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
+        </scene>
+        <!--File Table View Controller-->
+        <scene sceneID="hVg-cZ-Oxr">
+            <objects>
+                <tableViewController id="WKf-l4-w12" customClass="FileTableViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTh-4Q-3xI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="fileCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" id="7XK-0U-tS2" customClass="FileTableViewCell" customModule="ipfs_cam2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7XK-0U-tS2" id="FWS-G9-vQ2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WKf-l4-w12" id="TYN-4D-lSr"/>
+                            <outlet property="delegate" destination="WKf-l4-w12" id="dTp-Dd-qQC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Tu-cX-zkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-circle-64(1).png" width="64" height="64"/>
+    </resources>
+</document>

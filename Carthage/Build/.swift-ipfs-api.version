@@ -1,0 +1,10 @@
+{
+  "commitish" : "384ec386612ef117c3f2034408666730f5796bd9",
+  "iOS" : [
+    {
+      "name" : "SwiftIpfsApi",
+      "hash" : "2c917196cf3718939be55af2abec82bb70494b742786517b612556d3be760324",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ]
+}

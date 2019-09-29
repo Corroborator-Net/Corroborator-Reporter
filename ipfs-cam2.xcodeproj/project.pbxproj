@@ -1,0 +1,795 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */; };
+		C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC659233E723300CAF01F /* AppDelegate.swift */; };
+		C51EC65F233E723300CAF01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51EC65D233E723300CAF01F /* Main.storyboard */; };
+		C51EC662233E723300CAF01F /* ipfs_cam2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */; };
+		C51EC664233E723500CAF01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51EC663233E723500CAF01F /* Assets.xcassets */; };
+		C51EC667233E723500CAF01F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51EC665233E723500CAF01F /* LaunchScreen.storyboard */; };
+		C51EC672233E723500CAF01F /* ipfs_cam2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC671233E723500CAF01F /* ipfs_cam2Tests.swift */; };
+		C51EC67D233E723500CAF01F /* ipfs_cam2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC67C233E723500CAF01F /* ipfs_cam2UITests.swift */; };
+		C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E0233E7B6800944082 /* CameraViewController.swift */; };
+		C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E2233E7BA100944082 /* TWCameraView.swift */; };
+		C57794D82340583A00056CD9 /* NewTableVCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */; };
+		C57794DA23405AA600056CD9 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57794D923405AA600056CD9 /* CustomTableView.swift */; };
+		C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */; };
+		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
+		C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF715233E9DD700637EC3 /* ImageSaver.swift */; };
+		C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */; };
+		C5ACF71F233F1CFF00637EC3 /* SwiftIpfsApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */; };
+		C5ACF720233F1CFF00637EC3 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */; };
+		C5ACF721233F1CFF00637EC3 /* SwiftMultiaddr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */; };
+		C5ACF722233F1CFF00637EC3 /* SwiftMultihash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */; };
+		C5ACF723233F1CFF00637EC3 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */; };
+		C5ACF724233F1CFF00637EC3 /* VarInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71D233F1CFF00637EC3 /* VarInt.framework */; };
+		C5ACF726233F1F4C00637EC3 /* SwiftBase58.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF727233F1F4C00637EC3 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF728233F1F4C00637EC3 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF729233F1F4C00637EC3 /* SwiftIpfsApi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF72A233F1F4C00637EC3 /* SwiftMultiaddr.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF72B233F1F4C00637EC3 /* SwiftMultihash.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF72C233F1F4C00637EC3 /* VarInt.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71D233F1CFF00637EC3 /* VarInt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */; };
+		C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */; };
+		C5AD227C2340419100AF2864 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD227B2340419100AF2864 /* Network.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C51EC66E233E723500CAF01F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C51EC64E233E723300CAF01F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C51EC655233E723300CAF01F;
+			remoteInfo = "ipfs-cam2";
+		};
+		C51EC679233E723500CAF01F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C51EC64E233E723300CAF01F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C51EC655233E723300CAF01F;
+			remoteInfo = "ipfs-cam2";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5ACF725233F1F2D00637EC3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5ACF726233F1F4C00637EC3 /* SwiftBase58.framework in CopyFiles */,
+				C5ACF727233F1F4C00637EC3 /* SwiftGMP.framework in CopyFiles */,
+				C5ACF728233F1F4C00637EC3 /* SwiftHex.framework in CopyFiles */,
+				C5ACF729233F1F4C00637EC3 /* SwiftIpfsApi.framework in CopyFiles */,
+				C5ACF72A233F1F4C00637EC3 /* SwiftMultiaddr.framework in CopyFiles */,
+				C5ACF72B233F1F4C00637EC3 /* SwiftMultihash.framework in CopyFiles */,
+				C5ACF72C233F1F4C00637EC3 /* VarInt.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipfs_cam2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51EC656233E723300CAF01F /* ipfs-cam2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ipfs-cam2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51EC659233E723300CAF01F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C51EC65E233E723300CAF01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C51EC661233E723300CAF01F /* ipfs_cam2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ipfs_cam2.xcdatamodel; sourceTree = "<group>"; };
+		C51EC663233E723500CAF01F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C51EC666233E723500CAF01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C51EC668233E723500CAF01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C51EC66D233E723500CAF01F /* ipfs-cam2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipfs-cam2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51EC671233E723500CAF01F /* ipfs_cam2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipfs_cam2Tests.swift; sourceTree = "<group>"; };
+		C51EC673233E723500CAF01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C51EC678233E723500CAF01F /* ipfs-cam2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipfs-cam2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51EC67C233E723500CAF01F /* ipfs_cam2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipfs_cam2UITests.swift; sourceTree = "<group>"; };
+		C51EC67E233E723500CAF01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C52999E0233E7B6800944082 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		C52999E2233E7BA100944082 /* TWCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCameraView.swift; sourceTree = "<group>"; };
+		C52999E8233E821000944082 /* Textile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Textile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52999EA233E821400944082 /* TextileCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TextileCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52999EC233E821A00944082 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52999EF233E87CF00944082 /* Textile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Textile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52999F1233E87D300944082 /* TextileCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TextileCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52999F3233E87D600944082 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableVCTableViewController.swift; sourceTree = "<group>"; };
+		C57794D923405AA600056CD9 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-circle-64(1).png"; path = "../../../../Downloads/icons8-circle-64(1).png"; sourceTree = "<group>"; };
+		C5947ABD2340307D00720E7A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5ACF715233E9DD700637EC3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
+		C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIpfsApi.framework; path = Carthage/Build/iOS/SwiftIpfsApi.framework; sourceTree = "<group>"; };
+		C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = "<group>"; };
+		C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMultiaddr.framework; path = Carthage/Build/iOS/SwiftMultiaddr.framework; sourceTree = "<group>"; };
+		C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMultihash.framework; path = Carthage/Build/iOS/SwiftMultihash.framework; sourceTree = "<group>"; };
+		C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = "<group>"; };
+		C5ACF71D233F1CFF00637EC3 /* VarInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VarInt.framework; path = Carthage/Build/iOS/VarInt.framework; sourceTree = "<group>"; };
+		C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewController.swift; sourceTree = "<group>"; };
+		C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		C5AD227B2340419100AF2864 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CA058D8E12FAB7E5519790A6 /* Pods-ipfs-cam2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipfs-cam2.release.xcconfig"; path = "Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2.release.xcconfig"; sourceTree = "<group>"; };
+		E053AC65C2896FA0FD062904 /* Pods-ipfs-cam2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipfs-cam2.debug.xcconfig"; path = "Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C51EC653233E723300CAF01F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */,
+				100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */,
+				C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */,
+				C5ACF71F233F1CFF00637EC3 /* SwiftIpfsApi.framework in Frameworks */,
+				C5ACF720233F1CFF00637EC3 /* SwiftHex.framework in Frameworks */,
+				C5ACF721233F1CFF00637EC3 /* SwiftMultiaddr.framework in Frameworks */,
+				C5ACF722233F1CFF00637EC3 /* SwiftMultihash.framework in Frameworks */,
+				C5ACF723233F1CFF00637EC3 /* SwiftGMP.framework in Frameworks */,
+				C5ACF724233F1CFF00637EC3 /* VarInt.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC66A233E723500CAF01F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC675233E723500CAF01F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C73C595A70096BAF9E183CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5947ABD2340307D00720E7A /* Alamofire.framework */,
+				C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */,
+				C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */,
+				C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */,
+				C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */,
+				C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */,
+				C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */,
+				C5ACF71D233F1CFF00637EC3 /* VarInt.framework */,
+				C52999F3233E87D600944082 /* Protobuf.framework */,
+				C52999F1233E87D300944082 /* TextileCore.framework */,
+				C52999EF233E87CF00944082 /* Textile.framework */,
+				C52999EC233E821A00944082 /* Protobuf.framework */,
+				C52999EA233E821400944082 /* TextileCore.framework */,
+				C52999E8233E821000944082 /* Textile.framework */,
+				ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95E0D3E5E4743A76CF8E8252 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E053AC65C2896FA0FD062904 /* Pods-ipfs-cam2.debug.xcconfig */,
+				CA058D8E12FAB7E5519790A6 /* Pods-ipfs-cam2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C51EC64D233E723300CAF01F = {
+			isa = PBXGroup;
+			children = (
+				C51EC658233E723300CAF01F /* ipfs-cam2 */,
+				C51EC670233E723500CAF01F /* ipfs-cam2Tests */,
+				C51EC67B233E723500CAF01F /* ipfs-cam2UITests */,
+				C51EC657233E723300CAF01F /* Products */,
+				95E0D3E5E4743A76CF8E8252 /* Pods */,
+				5C73C595A70096BAF9E183CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C51EC657233E723300CAF01F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C51EC656233E723300CAF01F /* ipfs-cam2.app */,
+				C51EC66D233E723500CAF01F /* ipfs-cam2Tests.xctest */,
+				C51EC678233E723500CAF01F /* ipfs-cam2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C51EC658233E723300CAF01F /* ipfs-cam2 */ = {
+			isa = PBXGroup;
+			children = (
+				C51EC659233E723300CAF01F /* AppDelegate.swift */,
+				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
+				C57794D923405AA600056CD9 /* CustomTableView.swift */,
+				C5AD227B2340419100AF2864 /* Network.swift */,
+				C52999E2233E7BA100944082 /* TWCameraView.swift */,
+				C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */,
+				C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */,
+				C52999E0233E7B6800944082 /* CameraViewController.swift */,
+				C5ACF715233E9DD700637EC3 /* ImageSaver.swift */,
+				C51EC65D233E723300CAF01F /* Main.storyboard */,
+				C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */,
+				C51EC663233E723500CAF01F /* Assets.xcassets */,
+				C51EC665233E723500CAF01F /* LaunchScreen.storyboard */,
+				C51EC668233E723500CAF01F /* Info.plist */,
+				C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */,
+			);
+			path = "ipfs-cam2";
+			sourceTree = "<group>";
+		};
+		C51EC670233E723500CAF01F /* ipfs-cam2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C51EC671233E723500CAF01F /* ipfs_cam2Tests.swift */,
+				C51EC673233E723500CAF01F /* Info.plist */,
+			);
+			path = "ipfs-cam2Tests";
+			sourceTree = "<group>";
+		};
+		C51EC67B233E723500CAF01F /* ipfs-cam2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				C51EC67C233E723500CAF01F /* ipfs_cam2UITests.swift */,
+				C51EC67E233E723500CAF01F /* Info.plist */,
+			);
+			path = "ipfs-cam2UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C51EC655233E723300CAF01F /* ipfs-cam2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C51EC681233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2" */;
+			buildPhases = (
+				2A460A73D6BFE36131D7321D /* [CP] Check Pods Manifest.lock */,
+				C51EC652233E723300CAF01F /* Sources */,
+				C51EC653233E723300CAF01F /* Frameworks */,
+				C51EC654233E723300CAF01F /* Resources */,
+				1DF2F0A675DD95B6FC3A3F6C /* [CP] Embed Pods Frameworks */,
+				C5ACF725233F1F2D00637EC3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ipfs-cam2";
+			productName = "ipfs-cam2";
+			productReference = C51EC656233E723300CAF01F /* ipfs-cam2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C51EC66C233E723500CAF01F /* ipfs-cam2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C51EC684233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2Tests" */;
+			buildPhases = (
+				C51EC669233E723500CAF01F /* Sources */,
+				C51EC66A233E723500CAF01F /* Frameworks */,
+				C51EC66B233E723500CAF01F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C51EC66F233E723500CAF01F /* PBXTargetDependency */,
+			);
+			name = "ipfs-cam2Tests";
+			productName = "ipfs-cam2Tests";
+			productReference = C51EC66D233E723500CAF01F /* ipfs-cam2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C51EC677233E723500CAF01F /* ipfs-cam2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C51EC687233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2UITests" */;
+			buildPhases = (
+				C51EC674233E723500CAF01F /* Sources */,
+				C51EC675233E723500CAF01F /* Frameworks */,
+				C51EC676233E723500CAF01F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C51EC67A233E723500CAF01F /* PBXTargetDependency */,
+			);
+			name = "ipfs-cam2UITests";
+			productName = "ipfs-cam2UITests";
+			productReference = C51EC678233E723500CAF01F /* ipfs-cam2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C51EC64E233E723300CAF01F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Ian Philips";
+				TargetAttributes = {
+					C51EC655233E723300CAF01F = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					C51EC66C233E723500CAF01F = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C51EC655233E723300CAF01F;
+					};
+					C51EC677233E723500CAF01F = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C51EC655233E723300CAF01F;
+					};
+				};
+			};
+			buildConfigurationList = C51EC651233E723300CAF01F /* Build configuration list for PBXProject "ipfs-cam2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C51EC64D233E723300CAF01F;
+			productRefGroup = C51EC657233E723300CAF01F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C51EC655233E723300CAF01F /* ipfs-cam2 */,
+				C51EC66C233E723500CAF01F /* ipfs-cam2Tests */,
+				C51EC677233E723500CAF01F /* ipfs-cam2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C51EC654233E723300CAF01F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51EC667233E723500CAF01F /* LaunchScreen.storyboard in Resources */,
+				C51EC664233E723500CAF01F /* Assets.xcassets in Resources */,
+				C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */,
+				C51EC65F233E723300CAF01F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC66B233E723500CAF01F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC676233E723500CAF01F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DF2F0A675DD95B6FC3A3F6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A460A73D6BFE36131D7321D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ipfs-cam2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C51EC652233E723300CAF01F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C57794D82340583A00056CD9 /* NewTableVCTableViewController.swift in Sources */,
+				C51EC662233E723300CAF01F /* ipfs_cam2.xcdatamodeld in Sources */,
+				C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */,
+				C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */,
+				C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */,
+				C5AD227C2340419100AF2864 /* Network.swift in Sources */,
+				C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */,
+				C57794DA23405AA600056CD9 /* CustomTableView.swift in Sources */,
+				C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */,
+				C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC669233E723500CAF01F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51EC672233E723500CAF01F /* ipfs_cam2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C51EC674233E723500CAF01F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51EC67D233E723500CAF01F /* ipfs_cam2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C51EC66F233E723500CAF01F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C51EC655233E723300CAF01F /* ipfs-cam2 */;
+			targetProxy = C51EC66E233E723500CAF01F /* PBXContainerItemProxy */;
+		};
+		C51EC67A233E723500CAF01F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C51EC655233E723300CAF01F /* ipfs-cam2 */;
+			targetProxy = C51EC679233E723500CAF01F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C51EC65D233E723300CAF01F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51EC65E233E723300CAF01F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C51EC665233E723500CAF01F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51EC666233E723500CAF01F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C51EC67F233E723500CAF01F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C51EC680233E723500CAF01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C51EC682233E723500CAF01F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E053AC65C2896FA0FD062904 /* Pods-ipfs-cam2.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "ipfs-cam2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C51EC683233E723500CAF01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA058D8E12FAB7E5519790A6 /* Pods-ipfs-cam2.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "ipfs-cam2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C51EC685233E723500CAF01F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				INFOPLIST_FILE = "ipfs-cam2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipfs-cam2.app/ipfs-cam2";
+			};
+			name = Debug;
+		};
+		C51EC686233E723500CAF01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				INFOPLIST_FILE = "ipfs-cam2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipfs-cam2.app/ipfs-cam2";
+			};
+			name = Release;
+		};
+		C51EC688233E723500CAF01F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				INFOPLIST_FILE = "ipfs-cam2UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ipfs-cam2";
+			};
+			name = Debug;
+		};
+		C51EC689233E723500CAF01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				INFOPLIST_FILE = "ipfs-cam2UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ipfs-cam2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C51EC651233E723300CAF01F /* Build configuration list for PBXProject "ipfs-cam2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EC67F233E723500CAF01F /* Debug */,
+				C51EC680233E723500CAF01F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EC681233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EC682233E723500CAF01F /* Debug */,
+				C51EC683233E723500CAF01F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EC684233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EC685233E723500CAF01F /* Debug */,
+				C51EC686233E723500CAF01F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EC687233E723500CAF01F /* Build configuration list for PBXNativeTarget "ipfs-cam2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EC688233E723500CAF01F /* Debug */,
+				C51EC689233E723500CAF01F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C51EC661233E723300CAF01F /* ipfs_cam2.xcdatamodel */,
+			);
+			currentVersion = C51EC661233E723300CAF01F /* ipfs_cam2.xcdatamodel */;
+			path = ipfs_cam2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C51EC64E233E723300CAF01F /* Project object */;
+}

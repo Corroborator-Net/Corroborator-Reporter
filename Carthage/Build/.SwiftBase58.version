@@ -1,0 +1,10 @@
+{
+  "commitish" : "v0.5.2",
+  "iOS" : [
+    {
+      "name" : "SwiftBase58",
+      "hash" : "e8d1c964dd33e8490badca8129f2233d0d491d735548dee09e5630b441ca33da",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ]
+}

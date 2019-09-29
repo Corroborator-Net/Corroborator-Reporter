@@ -1,0 +1,10 @@
+{
+  "commitish" : "v0.4.9",
+  "iOS" : [
+    {
+      "name" : "SwiftGMP",
+      "hash" : "a8ffa91cc0afd2134501659ecbd3ff6b3b8a0b346effb3d85910f5c8f304f299",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ]
+}
