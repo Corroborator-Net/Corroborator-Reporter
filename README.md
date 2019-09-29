@@ -1,10 +1,9 @@
 # Corroborator-iOS
 
-use Xcode 10.3
-iOS 12
+Front-end image recording and fingerprinting app for forensic evidence verification. Images taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time) changed, the CID producted from the edited image will differ from the original. The CID of the original image is uploaded to InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
 
 ## Installation
-Connect an iPhone with iOS version 12+, open the `.xcworkspace`, and hit run.
+Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
 
 ## Usage
 
