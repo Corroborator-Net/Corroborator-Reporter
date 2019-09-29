@@ -2,9 +2,9 @@
 
 Front-end image recording and fingerprinting app for forensic evidence verification. Images taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time) changed, the CID producted from the edited image will differ from the original. The CID of the original image is uploaded to InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
 
-![home](https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0247.png =100)
+![home](https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0247.png =100x)
 
-![offline](https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png =100)
+![offline](https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png =100x)
 
 ## Installation
 Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
