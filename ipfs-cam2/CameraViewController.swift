@@ -79,10 +79,8 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         InitGeolocation()
 
-
         // Set the Textile delegate to self so we can make use of events such nodeStarted
         vc = FileTableViewController()
-        vc?.PrepareCells()
         
         cameraView = TWCameraView()
         cameraView!.translatesAutoresizingMaskIntoConstraints = false
@@ -107,8 +105,14 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     var vc:FileTableViewController?
+    
     @IBAction func GetPictureButtonPress(_ sender: Any) {
-        navigationController?.show(vc!, sender: self)        
+        navigationController?.show(vc!, sender: self)
+        let seconds = 0.1
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.vc!.RefreshCellRowsWithFileNames()
+            }
+        
     }
     
     

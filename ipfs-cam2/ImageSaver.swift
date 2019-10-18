@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-//import Textile
-//import SwiftIpfsApi
+
 import Alamofire
 import SwiftyJSON
 import CoreLocation
@@ -25,20 +24,24 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     func cameraViewDidCaptureImage(image: UIImage, cameraView: TWCameraView) {
 
 //        let fileName = "test.jpg"
-        let jpeg = image.jpegData(compressionQuality: 0.7)
+        let jpeg = image.jpegData(compressionQuality: Constants.quality)
 //        tryIPFS(image: jpeg!)
         
         let jpegImage = UIImage.init(data: jpeg!)!
         
-
+        
         self.saveToLibrary(image: jpegImage)
+        
+        let fileName = generateFileName()
         // if connected, upload to network
         if Reachability.isConnectedToNetwork()
         {
-            ImageSaver.uploadToIPFS(image: jpeg!, VC: nil)
+            // save to docs so we have an image with matching CID on the mobile device
+            ImageSaver.saveToDocuments(image: jpeg!, fileName: fileName)
+            ImageSaver.uploadToIPFS(image: jpeg!, fileName: fileName, VC: nil, FileFinishedHandler: nil)
         }
         else{
-            AddPictureToUploadLater(image: jpeg!)
+            AddPictureToDocumentsToUploadLater(image: jpeg!, fileName: fileName)
         }
         
 
@@ -47,30 +50,39 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         //self.saveAsCID(image: jpegImage, path: "")
     }
     
-    func AddPictureToUploadLater(image:Data){
-        // get filename
-        let timestamp = NSDate().timeIntervalSince1970
-        let date:String = String(format:"%f", timestamp)
-        // get path
-        let fileName = date
-
-        self.saveToDocuments(image: image, fileName: fileName)
-        var offlineDictionary = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
-        offlineDictionary.append(fileName)
-        
-        UserDefaults.standard.set(offlineDictionary,forKey: "offlineQueue")
-
+    func generateFileName() -> String{
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = String(calendar.component(.hour, from: date))
+        let minutes = String(calendar.component(.minute, from: date))
+        let seconds = String(calendar.component(.second, from: date))
+        let milliseconds = String( calendar.component(.nanosecond, from: date)/10000000)
+        let day = String(calendar.component(.day, from: date))
+        let month = String(calendar.component(.month, from: date))
+        let year = String(calendar.component(.year, from: date))
+        let fileName = String(month + "-" + day + "-" + year + "_" + hour + ":" + minutes + ":" + seconds + ":" + milliseconds) 
+        return fileName + ".jpg"
     }
     
     
-    public static func uploadToIPFS(image:Data, VC:UIViewController?){
+    func AddPictureToDocumentsToUploadLater(image:Data, fileName:String){
+    
+        ImageSaver.saveToDocuments(image: image, fileName: fileName)
+        var filesToUpload = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
+        filesToUpload.append(fileName)
+        
+        UserDefaults.standard.set(filesToUpload,forKey: "offlineQueue")
+    }
+    
+    
+    public static func uploadToIPFS(image:Data, fileName:String, VC:UIViewController?, FileFinishedHandler:OfflineImageHandler?){
         let fullUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"
         
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(image,
                                      withName: "file",
-                                     fileName: "test.jpg",
+                                     fileName: fileName,
                                      mimeType: "image/jpeg")
         },
                          to: fullUrl,
@@ -86,7 +98,9 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                                     guard response.result.isSuccess,
                                         let value = response.result.value else {
                                             print("Error while uploading file: \(String(describing: response.result.error))")
-//                                            completion(nil, nil)
+                                            if (FileFinishedHandler != nil){
+                                                FileFinishedHandler?.OnFileUploadError();
+                                            }
                                             return
                                     }
 
@@ -97,6 +111,10 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                                     print("Content uploaded with ID: \(cid)")
                                     if (VC != nil){
                                         ImageSaver.ShowUploadedNotification(VC: VC!, CID: cid)
+                                    }
+                                    
+                                    if (FileFinishedHandler != nil){
+                                        FileFinishedHandler?.OnFileUploadFinish(image: image, fileName: fileName)
                                     }
                                     UploadCIDToEthereum(CID: cid)
                                     
@@ -170,7 +188,7 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     }
     
     
-    func saveToDocuments(image: Data, fileName: String) {
+    static func saveToDocuments(image: Data, fileName: String) {
         
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = documentsDirectory.appendingPathComponent(fileName)

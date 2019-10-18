@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */; };
+		C5196EB1235A100C00FB2BB0 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5196EB0235A100C00FB2BB0 /* Contstants.swift */; };
 		C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC659233E723300CAF01F /* AppDelegate.swift */; };
 		C51EC65F233E723300CAF01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51EC65D233E723300CAF01F /* Main.storyboard */; };
 		C51EC662233E723300CAF01F /* ipfs_cam2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */; };
@@ -17,8 +18,6 @@
 		C51EC67D233E723500CAF01F /* ipfs_cam2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC67C233E723500CAF01F /* ipfs_cam2UITests.swift */; };
 		C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E0233E7B6800944082 /* CameraViewController.swift */; };
 		C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E2233E7BA100944082 /* TWCameraView.swift */; };
-		C57794D82340583A00056CD9 /* NewTableVCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */; };
-		C57794DA23405AA600056CD9 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57794D923405AA600056CD9 /* CustomTableView.swift */; };
 		C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */; };
 		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
 		C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF715233E9DD700637EC3 /* ImageSaver.swift */; };
@@ -79,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipfs_cam2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5196EB0235A100C00FB2BB0 /* Contstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
 		C51EC656233E723300CAF01F /* ipfs-cam2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ipfs-cam2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51EC659233E723300CAF01F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C51EC65E233E723300CAF01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,14 +94,6 @@
 		C51EC67E233E723500CAF01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52999E0233E7B6800944082 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C52999E2233E7BA100944082 /* TWCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCameraView.swift; sourceTree = "<group>"; };
-		C52999E8233E821000944082 /* Textile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Textile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52999EA233E821400944082 /* TextileCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TextileCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52999EC233E821A00944082 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52999EF233E87CF00944082 /* Textile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Textile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52999F1233E87D300944082 /* TextileCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TextileCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52999F3233E87D600944082 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableVCTableViewController.swift; sourceTree = "<group>"; };
-		C57794D923405AA600056CD9 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-circle-64(1).png"; path = "../../../../Downloads/icons8-circle-64(1).png"; sourceTree = "<group>"; };
 		C5947ABD2340307D00720E7A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACF715233E9DD700637EC3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -164,12 +156,6 @@
 				C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */,
 				C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */,
 				C5ACF71D233F1CFF00637EC3 /* VarInt.framework */,
-				C52999F3233E87D600944082 /* Protobuf.framework */,
-				C52999F1233E87D300944082 /* TextileCore.framework */,
-				C52999EF233E87CF00944082 /* Textile.framework */,
-				C52999EC233E821A00944082 /* Protobuf.framework */,
-				C52999EA233E821400944082 /* TextileCore.framework */,
-				C52999E8233E821000944082 /* Textile.framework */,
 				ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */,
 			);
 			name = Frameworks;
@@ -210,15 +196,14 @@
 			isa = PBXGroup;
 			children = (
 				C51EC659233E723300CAF01F /* AppDelegate.swift */,
-				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
-				C57794D923405AA600056CD9 /* CustomTableView.swift */,
-				C5AD227B2340419100AF2864 /* Network.swift */,
-				C52999E2233E7BA100944082 /* TWCameraView.swift */,
 				C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */,
-				C57794D72340583A00056CD9 /* NewTableVCTableViewController.swift */,
+				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
+				C52999E2233E7BA100944082 /* TWCameraView.swift */,
 				C52999E0233E7B6800944082 /* CameraViewController.swift */,
 				C5ACF715233E9DD700637EC3 /* ImageSaver.swift */,
 				C51EC65D233E723300CAF01F /* Main.storyboard */,
+				C5AD227B2340419100AF2864 /* Network.swift */,
+				C5196EB0235A100C00FB2BB0 /* Contstants.swift */,
 				C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */,
 				C51EC663233E723500CAF01F /* Assets.xcassets */,
 				C51EC665233E723500CAF01F /* LaunchScreen.storyboard */,
@@ -423,15 +408,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C57794D82340583A00056CD9 /* NewTableVCTableViewController.swift in Sources */,
 				C51EC662233E723300CAF01F /* ipfs_cam2.xcdatamodeld in Sources */,
 				C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */,
 				C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */,
 				C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */,
 				C5AD227C2340419100AF2864 /* Network.swift in Sources */,
 				C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */,
-				C57794DA23405AA600056CD9 /* CustomTableView.swift in Sources */,
 				C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */,
+				C5196EB1235A100C00FB2BB0 /* Contstants.swift in Sources */,
 				C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
