@@ -22,3 +22,5 @@ Pictures are saved to the application's secure directory and their locations are
 **Auditor image dashboard**: https://pinata.cloud/pinexplorer  
 **Ethereum contract address**: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
 **To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
+**To see/download image with CID from above Ethereum contract**: https://gateway.pinata.cloud/ipfs/IMAGE_CID_HERE  
+
