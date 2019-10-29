@@ -51,15 +51,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Offline Queue"/>
                                 <connections>
-                                    <action selector="GetPictureButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Af-k6-fz0"/>
+                                    <action selector="OfflineQueueButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Af-k6-fz0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-EL-rTE">
+                                <rect key="frame" x="20" y="772" width="106" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="6rM-Br-GPR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="n6e-yd-kJK" kind="show" id="Jfo-dF-K7C"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="JdB-Cp-h9x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5FR-B4-MEi"/>
+                            <constraint firstItem="Xsv-EL-rTE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BRq-o2-cTg"/>
                             <constraint firstItem="JdB-Cp-h9x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="Fs5-pS-fSh"/>
+                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="leading" secondItem="Xsv-EL-rTE" secondAttribute="trailing" constant="8" id="SBg-dj-hoP"/>
                             <constraint firstItem="JdB-Cp-h9x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f0B-VE-ar4"/>
+                            <constraint firstItem="Xsv-EL-rTE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f0h-tU-iKO"/>
                             <constraint firstItem="Pl4-Ds-KYY" firstAttribute="leading" secondItem="JdB-Cp-h9x" secondAttribute="trailing" constant="32" id="ims-lO-VTc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pl4-Ds-KYY" secondAttribute="trailing" constant="20" id="n87-ro-Alg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pl4-Ds-KYY" secondAttribute="bottom" id="qpc-Qj-GxN"/>
@@ -75,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
         </scene>
-        <!--File Table View Controller-->
+        <!--Offline Queue-->
         <scene sceneID="hVg-cZ-Oxr">
             <objects>
-                <tableViewController id="WKf-l4-w12" customClass="FileTableViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Offline Queue" id="WKf-l4-w12" customClass="FileTableViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTh-4Q-3xI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +115,57 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tu-cX-zkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="113"/>
+            <point key="canvasLocation" x="1148" y="-26"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="sae-xL-XZe">
+            <objects>
+                <viewController title="Settings" id="n6e-yd-kJK" customClass="SettingsVC" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ywp-KD-LbU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Purpose - only applies after setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-eM-R96">
+                                <rect key="frame" x="20" y="108" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="aIH-Wq-etM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter purpose of photo(s) here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahN-LN-r9Y">
+                                <rect key="frame" x="20" y="188" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="xSa-P9-z1j"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="PhotoPurposeEditingEnded:" destination="n6e-yd-kJK" eventType="editingDidEndOnExit" id="caa-MZ-oO1"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="top" secondItem="4BP-eM-R96" secondAttribute="bottom" constant="20" id="Lqk-eH-vmd"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="ahN-LN-r9Y" secondAttribute="trailing" constant="20" id="VMk-5F-uxh"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="top" secondItem="z1L-JH-Ju4" secondAttribute="top" constant="20" id="Ytj-36-MqX"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="centerX" secondItem="Ywp-KD-LbU" secondAttribute="centerX" id="c5P-TT-BBs"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="flr-D2-orq"/>
+                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="qq1-MZ-m6e"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="4BP-eM-R96" secondAttribute="trailing" constant="20" id="vFu-LK-HrN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z1L-JH-Ju4"/>
+                    </view>
+                    <connections>
+                        <outlet property="PurposeField" destination="ahN-LN-r9Y" id="QTP-oh-0eJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSC-F0-gff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="644"/>
         </scene>
     </scenes>
     <resources>

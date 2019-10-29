@@ -250,7 +250,7 @@ public class TWCameraView: UIView {
         
         guard let photoOutput = self.photoOutput else { return }
         
-        let captureSettings = AVCapturePhotoSettings(format: [ AVVideoCodecKey : AVVideoCodecJPEG ])
+        let captureSettings = AVCapturePhotoSettings(format: [ AVVideoCodecKey : AVVideoCodecType.jpeg ])
         
         if (self.cameraType == .back) {
             captureSettings.flashMode = flashMode
@@ -268,7 +268,7 @@ public class TWCameraView: UIView {
 //MARK:- Permissions
 fileprivate extension TWCameraView {
     
-    fileprivate func requestCapturePermission(completion: @escaping (_ granted: Bool) -> Void) {
+    func requestCapturePermission(completion: @escaping (_ granted: Bool) -> Void) {
         
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { permissionGranted in
             

@@ -23,12 +23,11 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     
     func cameraViewDidCaptureImage(image: UIImage, cameraView: TWCameraView) {
 
-//        let fileName = "test.jpg"
-        let jpeg = image.jpegData(compressionQuality: Constants.quality)
-//        tryIPFS(image: jpeg!)
+        let imageData = image.jpegData(compressionQuality: Constants.quality)!
+        let jpeg = addImageMetadata(imageData: imageData)!
         
-        let jpegImage = UIImage.init(data: jpeg!)!
         
+        let jpegImage = UIImage.init(data: jpeg)!
         
         self.saveToLibrary(image: jpegImage)
         
@@ -37,11 +36,12 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         if Reachability.isConnectedToNetwork()
         {
             // save to docs so we have an image with matching CID on the mobile device
-            ImageSaver.saveToDocuments(image: jpeg!, fileName: fileName)
-            ImageSaver.uploadToIPFS(image: jpeg!, fileName: fileName, VC: nil, FileFinishedHandler: nil)
+            ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
+            ImageSaver.uploadToIPFS(image: jpeg, fileName: fileName, VC: nil, FileFinishedHandler: nil)
         }
         else{
-            AddPictureToDocumentsToUploadLater(image: jpeg!, fileName: fileName)
+            ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
+            AddPictureToDocumentsToUploadLater(fileName: fileName)
         }
         
 
@@ -49,6 +49,58 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
 //        let imageFromFile = UIImage(contentsOfFile: path)!
         //self.saveAsCID(image: jpegImage, path: "")
     }
+    
+    func addImageMetadata(imageData: Data) -> Data? {
+        let imageMetadataDictionary = NSMutableDictionary()
+
+        // add GPS metadata
+        let metadataGPS = (CameraViewController.locationManager?.location!.exifMetadata())!
+        imageMetadataDictionary[(kCGImagePropertyGPSDictionary as String)] = metadataGPS
+        
+        // add our own data
+        let arbitraryData = NSMutableDictionary()
+
+        // add department info
+        var userComment = "Department: Los Angeles Police Department, "
+            + "Device model: " + modelIdentifier() + ", "
+        
+
+        // add a an image purpose (set by user in settings)
+        if (SettingsVC.CurrentPhotoPurpose != ""){
+             userComment += "Purpose: " + SettingsVC.CurrentPhotoPurpose
+        }
+        // set the comment
+        arbitraryData[(kCGImagePropertyExifUserComment as String)] = userComment
+
+        // add in the device ID
+        arbitraryData[(kCGImagePropertyExifCameraOwnerName)] =        UIDevice.current.identifierForVendor?.uuidString
+
+        // load arbitrary data into our final metadata dictionary
+        imageMetadataDictionary[(kCGImagePropertyExifDictionary as String)] = arbitraryData
+    
+        
+        if let source = CGImageSourceCreateWithData(imageData as CFData, nil) {
+            if let uti = CGImageSourceGetType(source) {
+                let destinationData = NSMutableData()
+                if let destination = CGImageDestinationCreateWithData(destinationData, uti, 1, nil) {
+                    CGImageDestinationAddImageFromSource(destination, source, 0, imageMetadataDictionary as CFDictionary)
+                    if CGImageDestinationFinalize(destination) == false {
+                        return nil
+                    }
+                    return destinationData as Data
+                }
+            }
+        }
+        return nil
+    }
+    
+    func modelIdentifier() -> String {
+        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
+        var sysinfo = utsname()
+        uname(&sysinfo) // ignore return value
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
+    }
+    
     
     func generateFileName() -> String{
         let date = Date()
@@ -65,12 +117,9 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     }
     
     
-    func AddPictureToDocumentsToUploadLater(image:Data, fileName:String){
-    
-        ImageSaver.saveToDocuments(image: image, fileName: fileName)
+    func AddPictureToDocumentsToUploadLater(fileName:String){
         var filesToUpload = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
         filesToUpload.append(fileName)
-        
         UserDefaults.standard.set(filesToUpload,forKey: "offlineQueue")
     }
     
@@ -127,6 +176,7 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                             
         })
     }
+    
     
     static func stringFromCurrentDate() -> String {
         let date = Date()

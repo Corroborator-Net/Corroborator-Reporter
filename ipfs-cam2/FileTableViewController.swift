@@ -68,8 +68,8 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         // show user we're uploading file
         let cell =  tableView.cellForRow(at: IndexPath(row: offlineDictionary.count-1, section: 0)) as? FileTableViewCell
         cell?.FileLabel!.text = uploadFileTitle
-        let image = self.load(fileName: currentFileToUpload)!.jpegData(compressionQuality: Constants.quality)
-        ImageSaver.uploadToIPFS(image: image!, fileName:currentFileToUpload, VC: self, FileFinishedHandler: self)
+        let image = self.load(fileName: currentFileToUpload)!
+        ImageSaver.uploadToIPFS(image: image, fileName:currentFileToUpload, VC: self, FileFinishedHandler: self)
         // for now we're uploading images serially for simplicity's sake
         currentlyUploading=true
     }
@@ -87,42 +87,26 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         let cell =  tableView.cellForRow(at: IndexPath(row: currentFileToUploadIndex, section: 0)) as? FileTableViewCell
         cell?.FileLabel!.text=""
 
-        // remove file from dictionary
+        // remove file path from dictionary - we just uploaded it
         var newOfflineDictionary = offlineDictionary
         newOfflineDictionary.remove(at: currentFileToUploadIndex)
         UserDefaults.standard.set(newOfflineDictionary,forKey: "offlineQueue")
         
-        // delete old file so we can re-save to have exact same file
-        FileTableViewController.remove(fileName: fileName)
-        // we have to re-save here to make sure the file uploaded to pinata is the same as the one in the app directory
-        ImageSaver.saveToDocuments(image: image!, fileName: fileName)
-        
         currentlyUploading=false
         
-        // start upoad process over again
+        // start upoad process over again for next file in dict
         ReloadUnsyncedFilesAndStartUpload()
     }
     
     
     
-    static func remove(fileName: String){
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let fileURL = documentsDirectory!.appendingPathComponent(fileName)
-        do{
-            try FileManager.default.removeItem(at: fileURL)
-        } catch{
-            print("Error deleting image : \(error)")
-
-        }
-    }
     
-    
-    private func load(fileName: String) -> UIImage? {
+    private func load(fileName: String) -> Data? {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let fileURL = documentsDirectory!.appendingPathComponent(fileName)
         do {
             let imageData = try Data(contentsOf: fileURL)
-            return UIImage(data: imageData)
+            return imageData
         } catch {
             print("Error loading image : \(error)")
         }
@@ -169,6 +153,19 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         
         return cell
     }
+
+    
+    //    static func remove(fileName: String){
+    //        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    //        let fileURL = documentsDirectory!.appendingPathComponent(fileName)
+    //        do{
+    //            try FileManager.default.removeItem(at: fileURL)
+    //        } catch{
+    //            print("Error deleting image : \(error)")
+    //
+    //        }
+    //    }
+    //
 
 
 }

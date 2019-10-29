@@ -18,6 +18,8 @@
 		C51EC67D233E723500CAF01F /* ipfs_cam2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC67C233E723500CAF01F /* ipfs_cam2UITests.swift */; };
 		C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E0233E7B6800944082 /* CameraViewController.swift */; };
 		C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E2233E7BA100944082 /* TWCameraView.swift */; };
+		C5465C652368C03F00C48A26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5465C642368C03F00C48A26 /* Extensions.swift */; };
+		C5465C692368DD5500C48A26 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5465C682368DD5500C48A26 /* SettingsVC.swift */; };
 		C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */; };
 		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
 		C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF715233E9DD700637EC3 /* ImageSaver.swift */; };
@@ -94,6 +96,8 @@
 		C51EC67E233E723500CAF01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52999E0233E7B6800944082 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C52999E2233E7BA100944082 /* TWCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWCameraView.swift; sourceTree = "<group>"; };
+		C5465C642368C03F00C48A26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C5465C682368DD5500C48A26 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-circle-64(1).png"; path = "../../../../Downloads/icons8-circle-64(1).png"; sourceTree = "<group>"; };
 		C5947ABD2340307D00720E7A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACF715233E9DD700637EC3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
 				C52999E2233E7BA100944082 /* TWCameraView.swift */,
 				C52999E0233E7B6800944082 /* CameraViewController.swift */,
+				C5465C682368DD5500C48A26 /* SettingsVC.swift */,
+				C5465C642368C03F00C48A26 /* Extensions.swift */,
 				C5ACF715233E9DD700637EC3 /* ImageSaver.swift */,
 				C51EC65D233E723300CAF01F /* Main.storyboard */,
 				C5AD227B2340419100AF2864 /* Network.swift */,
@@ -408,11 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5465C692368DD5500C48A26 /* SettingsVC.swift in Sources */,
 				C51EC662233E723300CAF01F /* ipfs_cam2.xcdatamodeld in Sources */,
 				C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */,
 				C52999E1233E7B6800944082 /* CameraViewController.swift in Sources */,
 				C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */,
 				C5AD227C2340419100AF2864 /* Network.swift in Sources */,
+				C5465C652368C03F00C48A26 /* Extensions.swift in Sources */,
 				C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */,
 				C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */,
 				C5196EB1235A100C00FB2BB0 /* Contstants.swift in Sources */,
