@@ -46,7 +46,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         
         // constraints
         cameraView!.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        cameraView!.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        cameraView!.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8).isActive = true
         cameraView!.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 5).isActive = true
 //        cameraView!.widthAnchor.constraint(equalToConstant: 200).isActive = true
         cameraView!.heightAnchor.constraint(equalToConstant: 500).isActive = true
