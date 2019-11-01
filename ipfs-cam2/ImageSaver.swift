@@ -8,10 +8,10 @@
 
 import Foundation
 import UIKit
-
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+
 class ImageSaver: NSObject, TWCameraViewDelegate{
     
 
@@ -60,20 +60,17 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         // add our own data
         let arbitraryData = NSMutableDictionary()
 
-        // add department info
-        var userComment = "Department: Los Angeles Police Department, "
-            + "Device model: " + modelIdentifier() + ", "
+        let commentData = ExifComment(
+        device_id: UIDevice.current.identifierForVendor!.uuidString, department: "Los Angeles Police Deparment", purpose: SettingsVC.CurrentPhotoPurpose, device_model: modelIdentifier(), user_name: "Ian P");
         
-
-        // add a an image purpose (set by user in settings)
-        if (SettingsVC.CurrentPhotoPurpose != ""){
-             userComment += "Purpose: " + SettingsVC.CurrentPhotoPurpose
-        }
+        let jsonData = try! JSONEncoder().encode(commentData)
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        
         // set the comment
-        arbitraryData[(kCGImagePropertyExifUserComment as String)] = userComment
+        arbitraryData[(kCGImagePropertyExifUserComment as String)] = jsonString
 
         // add in the device ID
-        arbitraryData[(kCGImagePropertyExifCameraOwnerName)] =        UIDevice.current.identifierForVendor?.uuidString
+//        arbitraryData[(kCGImagePropertyExifCameraOwnerName)] =        UIDevice.current.identifierForVendor?.uuidString
 
         // load arbitrary data into our final metadata dictionary
         imageMetadataDictionary[(kCGImagePropertyExifDictionary as String)] = arbitraryData
