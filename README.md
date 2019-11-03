@@ -1,4 +1,4 @@
-# Corroborator-iOS
+# Corroborator-Reporter
 
 **Image recording and fingerprinting app for forensic evidence verification.**  
 
