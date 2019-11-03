@@ -12,14 +12,14 @@ Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcwo
 
 ## Usage
 
-All pictures are stored in the user's default photo album and can be easily taken off the device. In addition:
+All pictures are stored in the user's default photo album for reference. Should a user want access to an image file saved on their device, they should use Itunes file sharing and **not** the photo roll as iOS changes images saved to the photo roll. User's can set the purpose of images, (e.g. "vehicle 1 in traffic incident 56GFH") that applies to photos taken after the purpose is set.
 
 While **online**:  
 Pictures are automatically uploaded to IPFS and the Content Identifier (CID - hash of the jpeg) is uploaded to the Ethereum Rinkeby network with accompanying metadata: time, location.
 
 
 While **offline**:  
-Pictures are saved to the application's secure directory and their locations are placed in a queue to be uploaded. Even if the user changes the photo in their default photo album, this doesn't change the image and CID uploaded to IPFS and Ethereum. The offline queue is consumed and the saved images are uploaded as soon as the app has internet access. The offline queue persists after the app is restarted. Tap the "Offline Queue" button to see files to be synced and see notifications when they're synced to IPFS and Ethereum. 
+Pictures are saved to the application's secure directory and their locations are saved and placed in a queue to be uploaded. Should the user change a photo in their default photo album, this won't change the image and CID uploaded to IPFS and Ethereum. The offline queue is consumed and the saved images are uploaded as soon as the app has internet access. The offline queue persists after the app is restarted. Tap the "Offline Queue" button to see files to be synced and see notifications when they're synced to IPFS and Ethereum. 
 
 **Auditor image dashboard**: https://pinata.cloud/pinexplorer  
 **Ethereum contract address**: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
