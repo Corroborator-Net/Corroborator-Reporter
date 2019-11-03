@@ -2,7 +2,7 @@
 
 **Image recording and fingerprinting app for forensic evidence verification.**  
 
-Images taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time, etc.) changed, the CID producted from the edited image will differ from the original. The image is uploaded to the InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and CID published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
+Images and associate metadata taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time, etc.) changed, the CID producted from the edited image will differ from the original. The image is uploaded to the InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and CID published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
 
 <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0433.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0434.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png" width="200">  
 
@@ -10,9 +10,8 @@ Images taken on this app are "hashed" to create a Content Identified (CID), or a
 ## Installation
 Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
 
-## Usage
-
-Before recording images, users can set the purpose of images, (e.g. "vehicle 1 in traffic incident 56GFH") that applies to photos taken after the purpose is set.
+## Usage. 
+Images are packaged with metadata including location, timestamp, photo purpose, user’s name, department, and phone id. All metadata is automatically populated (upon login and photo recording) except the photo purpose, which a user can set in the settings. Upon setting the purpose, (e.g. "vehicle 1 in traffic incident 56GFH") it will be packaged in the metadata for any following pictures taken.
 
 While **online**:  
 Pictures are automatically uploaded to IPFS and the Content Identifier (CID - hash of the jpeg) is uploaded to the Ethereum Rinkeby network with accompanying metadata: time, location.
