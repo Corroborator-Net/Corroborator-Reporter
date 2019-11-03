@@ -12,7 +12,7 @@ Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcwo
 
 ## Usage
 
-All pictures are stored in the user's default photo album for reference. Should a user want access to an image file saved on their device, they should use Itunes file sharing and **not** the photo roll as iOS changes images saved to the photo roll. User's can set the purpose of images, (e.g. "vehicle 1 in traffic incident 56GFH") that applies to photos taken after the purpose is set.
+All pictures are stored in the user's default photo album for reference. Should a user want to transfer an image file saved on their device to their computer, they should use Itunes file sharing and **not** the photo roll as iOS changes images saved to the photo roll. User's can set the purpose of images, (e.g. "vehicle 1 in traffic incident 56GFH") that applies to photos taken after the purpose is set.
 
 While **online**:  
 Pictures are automatically uploaded to IPFS and the Content Identifier (CID - hash of the jpeg) is uploaded to the Ethereum Rinkeby network with accompanying metadata: time, location.
