@@ -4,7 +4,7 @@
 
 Images taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time, etc.) changed, the CID producted from the edited image will differ from the original. The image is uploaded to the InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and CID published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
 
-<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0247.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png" width="200">
+<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0434.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0433.png" width="200">
 
 
 ## Installation
