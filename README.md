@@ -21,12 +21,14 @@ Pictures are automatically uploaded to IPFS and the Content Identifier (CID - ha
 While **offline**:  
 Pictures are saved to the application's secure directory and their locations are saved and placed in a queue to be uploaded. Should the user change a photo in their default photo album, this won't change the image and CID uploaded to IPFS and Ethereum. The offline queue is consumed and the saved images are uploaded as soon as the app has internet access. The offline queue persists after the app is restarted. Tap the "Offline Queue" button to see files to be synced and see notifications when they're synced to IPFS and Ethereum. 
 
-## Transferring images to a computer  
+## Transferring Images to a Computer  
 All pictures are stored in the user's default photo album for reference. Should a user want to transfer an image file saved on their device to their computer, they should use Itunes file sharing and **not** the photo roll as iOS changes images saved to the photo roll. 
 
 <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_filesharing.png" width="300">
 
 
+
+## References  
 **Auditor image dashboard**: https://pinata.cloud/pinexplorer  
 **Ethereum contract address**: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
 **To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
