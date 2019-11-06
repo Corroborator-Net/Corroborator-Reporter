@@ -26,7 +26,10 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         let imageData = image.jpegData(compressionQuality: Constants.quality)!
         let jpeg = addImageMetadata(imageData: imageData)!
         
-        
+//        let (dateTime, location) = BlockchainManager.GetMetadata(image: jpeg)
+//        print ( dateTime, location)
+//        return
+//        
         let jpegImage = UIImage.init(data: jpeg)!
         
         self.saveToLibrary(image: jpegImage)
@@ -37,7 +40,7 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         {
             // save to docs so we have an image with matching CID on the mobile device
             ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
-            ImageSaver.uploadToIPFS(image: jpeg, fileName: fileName, VC: nil, FileFinishedHandler: nil)
+            ImageSaver.uploadToIPFS(image: jpeg, fileName: fileName, UploadToBlockchain:true, VC: nil, FileFinishedHandler: nil)
         }
         else{
             ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
@@ -120,8 +123,13 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         UserDefaults.standard.set(filesToUpload,forKey: "offlineQueue")
     }
     
+
     
-    public static func uploadToIPFS(image:Data, fileName:String, VC:UIViewController?, FileFinishedHandler:OfflineImageHandler?){
+    public static func uploadToIPFS(image:Data,
+                                    fileName:String,
+                                    UploadToBlockchain:Bool,
+                                    VC:UIViewController?,
+                                    FileFinishedHandler:OfflineImageHandler?){
         let fullUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"
         
         
@@ -162,7 +170,10 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                                     if (FileFinishedHandler != nil){
                                         FileFinishedHandler?.OnFileUploadFinish(image: image, fileName: fileName)
                                     }
-                                    UploadCIDToEthereum(CID: cid)
+                                    if (UploadToBlockchain){
+                                        BlockchainManager.UploadCIDToEthereum(CID: cid, sourceMetadata: image)
+                                    }
+
                                     
                                     //3
 //                                    completion(nil, nil)
@@ -175,32 +186,9 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     }
     
     
-    static func stringFromCurrentDate() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy HH:mm" //yyyy
-        return formatter.string(from: date)
-    }
-    
-    
-    static func UploadCIDToEthereum(CID:String){
-        let locValue:CLLocationCoordinate2D = (CameraViewController.locationManager?.location!.coordinate)!
-        let records : [String] = [CID, stringFromCurrentDate(), "lat:\(locValue.latitude), long:\(locValue.longitude)"]
-        let parameters: Parameters = [ "tableId" : "4cc77154-536c-42ab-8f1d-53a1231d6667", "record" :  records]
-        let urlString = "https://api.atra.io/prod/v1/dtables/records"
-        let headers: HTTPHeaders = ["x-api-key": "vdssu05AWO6yAG4ojL4Sv6I9RkAGCak19hBhTVpm"]
-        let url = URL.init(string: urlString)
-        Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            switch response.result
-            {
-            case .success(let json):
-                print(json)
-            case .failure(let error):
-                print(error.localizedDescription)
 
-            }
-        }
-    }
+    
+    
     
     
 

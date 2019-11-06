@@ -55,6 +55,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+   
+    
+    
     @IBAction func TakePictureButtonPress(_ sender: Any) {
         cameraView!.capturePhoto()
     }

@@ -11,5 +11,6 @@ import CoreGraphics
 
 class Constants:NSObject{
     static let quality:CGFloat = 0.7
+    static let UserKey:String = "your key"
     
 }

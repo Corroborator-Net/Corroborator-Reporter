@@ -69,7 +69,7 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         let cell =  tableView.cellForRow(at: IndexPath(row: offlineDictionary.count-1, section: 0)) as? FileTableViewCell
         cell?.FileLabel!.text = uploadFileTitle
         let image = self.load(fileName: currentFileToUpload)!
-        ImageSaver.uploadToIPFS(image: image, fileName:currentFileToUpload, VC: self, FileFinishedHandler: self)
+        ImageSaver.uploadToIPFS(image: image, fileName:currentFileToUpload, UploadToBlockchain:true, VC: self, FileFinishedHandler: self)
         // for now we're uploading images serially for simplicity's sake
         currentlyUploading=true
     }
