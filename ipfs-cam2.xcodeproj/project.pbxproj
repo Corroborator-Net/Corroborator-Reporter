@@ -20,10 +20,11 @@
 		C52999E3233E7BA100944082 /* TWCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52999E2233E7BA100944082 /* TWCameraView.swift */; };
 		C5465C652368C03F00C48A26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5465C642368C03F00C48A26 /* Extensions.swift */; };
 		C5465C692368DD5500C48A26 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5465C682368DD5500C48A26 /* SettingsVC.swift */; };
-		C54EC34823736F1100676301 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = C54EC34723736F1100676301 /* CryptLib.m */; };
 		C54EC34A237376D000676301 /* BlockchainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54EC349237376D000676301 /* BlockchainManager.swift */; };
-		C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */; };
 		C591B2342374888000647457 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2332374888000647457 /* MainPageViewController.swift */; };
+		C591B2502374EF8500647457 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B24F2374EF8500647457 /* TabsView.swift */; };
+		C591B2522374F09500647457 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2512374F09500647457 /* ParentViewController.swift */; };
+		C591B2532374F2EE00647457 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = C591B24B2374EED900647457 /* CryptLib.m */; };
 		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
 		C5ACF716233E9DD700637EC3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF715233E9DD700637EC3 /* ImageSaver.swift */; };
 		C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */; };
@@ -103,11 +104,12 @@
 		C5465C642368C03F00C48A26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C5465C682368DD5500C48A26 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C54EC34523736F1000676301 /* ipfs-cam2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ipfs-cam2-Bridging-Header.h"; sourceTree = "<group>"; };
-		C54EC34623736F1100676301 /* CryptLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CryptLib.h; path = "../../Cross-Platform-AES/iOS/CryptLib.h"; sourceTree = "<group>"; };
-		C54EC34723736F1100676301 /* CryptLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CryptLib.m; path = "../../Cross-Platform-AES/iOS/CryptLib.m"; sourceTree = "<group>"; };
 		C54EC349237376D000676301 /* BlockchainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainManager.swift; sourceTree = "<group>"; };
-		C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-circle-64(1).png"; path = "../../../../Downloads/icons8-circle-64(1).png"; sourceTree = "<group>"; };
 		C591B2332374888000647457 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		C591B24A2374EED900647457 /* CryptLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptLib.h; sourceTree = "<group>"; };
+		C591B24B2374EED900647457 /* CryptLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptLib.m; sourceTree = "<group>"; };
+		C591B24F2374EF8500647457 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		C591B2512374F09500647457 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		C5947ABD2340307D00720E7A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACF715233E9DD700637EC3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
@@ -209,28 +211,24 @@
 		C51EC658233E723300CAF01F /* ipfs-cam2 */ = {
 			isa = PBXGroup;
 			children = (
-				C51EC659233E723300CAF01F /* AppDelegate.swift */,
 				C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */,
 				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
-				C52999E2233E7BA100944082 /* TWCameraView.swift */,
 				C52999E0233E7B6800944082 /* CameraViewController.swift */,
-				C54EC34623736F1100676301 /* CryptLib.h */,
-				C54EC34723736F1100676301 /* CryptLib.m */,
+				C591B24F2374EF8500647457 /* TabsView.swift */,
 				C5465C682368DD5500C48A26 /* SettingsVC.swift */,
-				C5465C642368C03F00C48A26 /* Extensions.swift */,
-				C5C00727236C966100E0F8F9 /* ExifCommentData.swift */,
 				C5ACF715233E9DD700637EC3 /* ImageSaver.swift */,
-				C54EC349237376D000676301 /* BlockchainManager.swift */,
+				C591B2512374F09500647457 /* ParentViewController.swift */,
 				C591B2332374888000647457 /* MainPageViewController.swift */,
+				C54EC34523736F1000676301 /* ipfs-cam2-Bridging-Header.h */,
 				C51EC65D233E723300CAF01F /* Main.storyboard */,
-				C5AD227B2340419100AF2864 /* Network.swift */,
-				C5196EB0235A100C00FB2BB0 /* Contstants.swift */,
-				C57794DD23410A8000056CD9 /* icons8-circle-64(1).png */,
 				C51EC663233E723500CAF01F /* Assets.xcassets */,
+				C591B24A2374EED900647457 /* CryptLib.h */,
+				C591B24B2374EED900647457 /* CryptLib.m */,
 				C51EC665233E723500CAF01F /* LaunchScreen.storyboard */,
 				C51EC668233E723500CAF01F /* Info.plist */,
-				C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */,
-				C54EC34523736F1000676301 /* ipfs-cam2-Bridging-Header.h */,
+				C591B24D2374EF2100647457 /* Utils */,
+				C591B2492374EED900647457 /* Crypto */,
+				C591B24C2374EEE300647457 /* icons */,
 			);
 			path = "ipfs-cam2";
 			sourceTree = "<group>";
@@ -251,6 +249,35 @@
 				C51EC67E233E723500CAF01F /* Info.plist */,
 			);
 			path = "ipfs-cam2UITests";
+			sourceTree = "<group>";
+		};
+		C591B2492374EED900647457 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		C591B24C2374EEE300647457 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		C591B24D2374EF2100647457 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C54EC349237376D000676301 /* BlockchainManager.swift */,
+				C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */,
+				C51EC659233E723300CAF01F /* AppDelegate.swift */,
+				C52999E2233E7BA100944082 /* TWCameraView.swift */,
+				C5465C642368C03F00C48A26 /* Extensions.swift */,
+				C5C00727236C966100E0F8F9 /* ExifCommentData.swift */,
+				C5AD227B2340419100AF2864 /* Network.swift */,
+				C5196EB0235A100C00FB2BB0 /* Contstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +390,6 @@
 			files = (
 				C51EC667233E723500CAF01F /* LaunchScreen.storyboard in Resources */,
 				C51EC664233E723500CAF01F /* Assets.xcassets in Resources */,
-				C57794DE23410A8000056CD9 /* icons8-circle-64(1).png in Resources */,
 				C51EC65F233E723300CAF01F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,12 +466,14 @@
 				C5AD227C2340419100AF2864 /* Network.swift in Sources */,
 				C5465C652368C03F00C48A26 /* Extensions.swift in Sources */,
 				C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */,
+				C591B2502374EF8500647457 /* TabsView.swift in Sources */,
 				C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */,
 				C591B2342374888000647457 /* MainPageViewController.swift in Sources */,
 				C5C00728236C966100E0F8F9 /* ExifCommentData.swift in Sources */,
 				C5196EB1235A100C00FB2BB0 /* Contstants.swift in Sources */,
+				C591B2522374F09500647457 /* ParentViewController.swift in Sources */,
+				C591B2532374F2EE00647457 /* CryptLib.m in Sources */,
 				C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */,
-				C54EC34823736F1100676301 /* CryptLib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

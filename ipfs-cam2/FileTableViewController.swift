@@ -16,6 +16,13 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     var offlineDictionary:[String] = []
     var currentlyUploading = false
     
+    override func viewWillAppear(_ animated: Bool) {
+        let seconds = 0.05
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.RefreshCellRowsWithFileNames()
+        }
+    }
+    
     public func RefreshCellRowsWithFileNames(){
     
         // check if unsynced files

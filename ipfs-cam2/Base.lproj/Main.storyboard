@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vft-gl-33f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oTv-vf-v15">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,62 +16,14 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdB-Cp-h9x">
-                                <rect key="frame" x="134" y="772" width="146" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="N4g-vb-hOh"/>
-                                </constraints>
-                                <state key="normal" image="icons8-circle-64(1).png"/>
-                                <connections>
-                                    <action selector="TakePictureButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udW-Sz-EzV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pl4-Ds-KYY">
-                                <rect key="frame" x="312" y="772" width="82" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="vlb-Qq-Yk6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Offline Queue"/>
-                                <connections>
-                                    <action selector="OfflineQueueButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Af-k6-fz0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-EL-rTE">
-                                <rect key="frame" x="20" y="772" width="106" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="6rM-Br-GPR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="n6e-yd-kJK" kind="show" id="Jfo-dF-K7C"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5FR-B4-MEi"/>
-                            <constraint firstItem="Xsv-EL-rTE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BRq-o2-cTg"/>
-                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="Fs5-pS-fSh"/>
-                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="leading" secondItem="Xsv-EL-rTE" secondAttribute="trailing" constant="8" id="SBg-dj-hoP"/>
-                            <constraint firstItem="JdB-Cp-h9x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f0B-VE-ar4"/>
-                            <constraint firstItem="Xsv-EL-rTE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f0h-tU-iKO"/>
-                            <constraint firstItem="Pl4-Ds-KYY" firstAttribute="leading" secondItem="JdB-Cp-h9x" secondAttribute="trailing" constant="32" id="ims-lO-VTc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pl4-Ds-KYY" secondAttribute="trailing" constant="20" id="n87-ro-Alg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pl4-Ds-KYY" secondAttribute="bottom" id="qpc-Qj-GxN"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="kHi-G1-p6K"/>
-                    <connections>
-                        <segue destination="WKf-l4-w12" kind="show" id="mHU-1w-GzA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
+            <point key="canvasLocation" x="1007" y="96"/>
         </scene>
         <!--Offline Queue-->
         <scene sceneID="hVg-cZ-Oxr">
@@ -99,7 +51,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tu-cX-zkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-26"/>
+            <point key="canvasLocation" x="1720" y="96"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="TUI-o5-D7M">
@@ -107,7 +59,86 @@
                 <pageViewController storyboardIdentifier="pageView" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vft-gl-33f" customClass="MainPageViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ywu-X5-49W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-672" y="27"/>
+            <point key="canvasLocation" x="-628" y="113"/>
+        </scene>
+        <!--Parent View Controller-->
+        <scene sceneID="L4H-lc-Bpi">
+            <objects>
+                <viewController id="oTv-vf-v15" customClass="ParentViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ht4-LX-MUc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="iG9-5m-NDC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                <connections>
+                                    <segue destination="vft-gl-33f" kind="embed" id="qt2-8Z-kkh"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fri-zl-273" customClass="TabsView" customModule="ipfs_cam2" customModuleProvider="target">
+                                <rect key="frame" x="20" y="826" width="374" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMn-Wf-ABY">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TA-P9L" userLabel="settings">
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="70"/>
+                                                <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
+                                                <state key="normal" image="icons8-settings-100.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-oS-8ZV" userLabel="camera">
+                                                <rect key="frame" x="124.5" y="0.0" width="125" height="70"/>
+                                                <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
+                                                <state key="normal" image="icons8-camera-100.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNh-67-aai" userLabel="files">
+                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="70"/>
+                                                <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
+                                                <state key="normal" image="icons8-folder-100.png"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0Ao-oS-8ZV" firstAttribute="height" secondItem="Fd8-TA-P9L" secondAttribute="height" id="4re-NZ-DkG"/>
+                                            <constraint firstItem="0Ao-oS-8ZV" firstAttribute="width" secondItem="Fd8-TA-P9L" secondAttribute="width" id="F8h-i6-nKL"/>
+                                            <constraint firstItem="NNh-67-aai" firstAttribute="width" secondItem="Fd8-TA-P9L" secondAttribute="width" id="Lp9-8d-P2k"/>
+                                            <constraint firstItem="NNh-67-aai" firstAttribute="height" secondItem="Fd8-TA-P9L" secondAttribute="height" id="fUp-Sf-bYf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HMn-Wf-ABY" secondAttribute="bottom" id="LAu-bQ-wqd"/>
+                                    <constraint firstAttribute="width" secondItem="fri-zl-273" secondAttribute="height" multiplier="187:35" id="Rz2-Ea-0Ys"/>
+                                    <constraint firstItem="HMn-Wf-ABY" firstAttribute="leading" secondItem="fri-zl-273" secondAttribute="leading" id="SoJ-nX-R0Q"/>
+                                    <constraint firstItem="HMn-Wf-ABY" firstAttribute="top" secondItem="fri-zl-273" secondAttribute="top" id="VbP-i8-f27"/>
+                                    <constraint firstAttribute="width" secondItem="fri-zl-273" secondAttribute="height" multiplier="187:35" id="gLY-bD-aWj"/>
+                                    <constraint firstAttribute="trailing" secondItem="HMn-Wf-ABY" secondAttribute="trailing" id="j6V-5t-Y6P"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fri-zl-273" firstAttribute="leading" secondItem="8em-tr-Rpo" secondAttribute="leading" constant="20" id="2AK-Hb-Wef"/>
+                            <constraint firstItem="iG9-5m-NDC" firstAttribute="leading" secondItem="8em-tr-Rpo" secondAttribute="leading" id="7bq-68-47h"/>
+                            <constraint firstItem="fri-zl-273" firstAttribute="top" secondItem="iG9-5m-NDC" secondAttribute="bottom" constant="8" id="93R-ZK-qD0"/>
+                            <constraint firstItem="iG9-5m-NDC" firstAttribute="trailing" secondItem="8em-tr-Rpo" secondAttribute="trailing" id="DDE-mV-Aor"/>
+                            <constraint firstItem="8em-tr-Rpo" firstAttribute="trailing" secondItem="fri-zl-273" secondAttribute="trailing" constant="20" id="HaV-2Y-WaV"/>
+                            <constraint firstItem="fri-zl-273" firstAttribute="centerX" secondItem="ht4-LX-MUc" secondAttribute="centerX" id="hdB-FN-Ecn"/>
+                            <constraint firstAttribute="bottom" secondItem="fri-zl-273" secondAttribute="bottom" id="l35-zp-PjC"/>
+                            <constraint firstItem="iG9-5m-NDC" firstAttribute="top" secondItem="ht4-LX-MUc" secondAttribute="top" id="wNw-jP-TXE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8em-tr-Rpo"/>
+                    </view>
+                    <connections>
+                        <outlet property="CameraButton" destination="0Ao-oS-8ZV" id="n7P-VR-OQa"/>
+                        <outlet property="ContainerView" destination="iG9-5m-NDC" id="gvL-mY-Hh7"/>
+                        <outlet property="FilesButton" destination="NNh-67-aai" id="XZo-mT-YvT"/>
+                        <outlet property="SettingsButton" destination="Fd8-TA-P9L" id="GFo-qg-Pir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhZ-Nc-Fyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1450.7246376811595" y="112.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="sae-xL-XZe">
@@ -157,10 +188,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSC-F0-gff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="644"/>
+            <point key="canvasLocation" x="272" y="96"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-circle-64(1).png" width="64" height="64"/>
+        <image name="icons8-camera-100.png" width="100" height="100"/>
+        <image name="icons8-folder-100.png" width="100" height="100"/>
+        <image name="icons8-settings-100.png" width="100" height="100"/>
     </resources>
 </document>

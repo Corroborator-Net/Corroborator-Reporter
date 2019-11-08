@@ -36,20 +36,23 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
         // Set the Textile delegate to self so we can make use of events such nodeStarted
         vc = FileTableViewController()
-        
-        cameraView = TWCameraView()
+        let height:CGFloat = 515
+        cameraView = TWCameraView(frame: CGRect(x: 0, y: 0, width: height/1.5, height: height))
         cameraView!.translatesAutoresizingMaskIntoConstraints = false
         cameraView!.backgroundColor = UIColor.clear
         cameraView!.delegate = imageSaver
         self.view.addSubview(cameraView!)
-        let margins = view.layoutMarginsGuide
-        
-        // constraints TODO: center the camera view horizontally
-        cameraView!.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 5).isActive = true
-        cameraView!.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8).isActive = true
-        cameraView!.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-//        cameraView!.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        cameraView!.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        cameraView!.heightAnchor.constraint(equalToConstant: height).isActive = true
+        cameraView!.widthAnchor.constraint(equalToConstant: height/1.5).isActive = true
+        cameraView!.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        cameraView!.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        let midX = self.view.frame.size.width/2
+        let camImage = UIImage(named: "circle")
+        let button = UIButton(frame: CGRect(x: midX-30, y: height, width: 60, height: 60))
+        button.setImage(camImage, for: .normal)
+        button.addTarget(self, action:  #selector(TakePictureButtonPress(_:)), for: .touchUpInside)
+        self.view.addSubview(button)
+        cameraView!.translatesAutoresizingMaskIntoConstraints = false
         cameraView!.startPreview(requestPermissionIfNeeded: true)
         // Do any additional setup after loading the view.
         
@@ -57,20 +60,16 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     
    
     
-    
-    @IBAction func TakePictureButtonPress(_ sender: Any) {
+    @objc func TakePictureButtonPress(_ sender: UIButton) {
         cameraView!.capturePhoto()
     }
     
-    
-    @IBAction func OfflineQueueButtonPressed(_ sender: Any) {
-        navigationController?.show(vc!, sender: self)
-        let seconds = 0.1
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.vc!.RefreshCellRowsWithFileNames()
-            }
-        
-    }
+//    
+//    @IBAction func OfflineQueueButtonPressed(_ sender: Any) {
+//        navigationController?.show(vc!, sender: self)
+//        
+//        
+//    }
     
     
 
