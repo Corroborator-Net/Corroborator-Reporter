@@ -12,45 +12,43 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ImageSaver: NSObject, TWCameraViewDelegate{
-    
-
+class ImageHandler: NSObject, TWCameraViewDelegate{
     
     var imageHash:String = ""
     func cameraViewDidFailToCaptureImage(error: Error, cameraView: TWCameraView) {
         print(error)
     }
     
+    
     func cameraViewDidCaptureImage(image: UIImage, cameraView: TWCameraView) {
 
         let imageData = image.jpegData(compressionQuality: Constants.quality)!
         let jpeg = addImageMetadata(imageData: imageData)!
-        
-//        let (dateTime, location) = BlockchainManager.GetMetadata(image: jpeg)
-//        print ( dateTime, location)
-//        return
-//        
         let jpegImage = UIImage.init(data: jpeg)!
         
         self.saveToLibrary(image: jpegImage)
         
-        let fileName = generateFileName()
+        let( fileName, date) = generateFileName()
         // if connected, upload to network
+        ImageHandler.saveToDocuments(image: jpeg, fileName: fileName)
+        let newSavedFile = CorroDataFile(
+            ThumbnailData: CorroDataFile.ProduceThumbnail(image: jpegImage),
+            FileName: fileName,
+            Synced:false,
+            DateTaken:date)
+        DataManager.AddFileToSyncLater(file: newSavedFile)
+
         if Reachability.isConnectedToNetwork()
         {
+            DataManager.CurrentlyUploading.append(newSavedFile.FileName)
             // save to docs so we have an image with matching CID on the mobile device
-            ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
-            ImageSaver.uploadToIPFS(image: jpeg, fileName: fileName, UploadToBlockchain:true, VC: nil, FileFinishedHandler: nil)
-        }
-        else{
-            ImageSaver.saveToDocuments(image: jpeg, fileName: fileName)
-            AddPictureToDocumentsToUploadLater(fileName: fileName)
+            ImageHandler.uploadToIPFS(image: jpeg,
+                                      file: newSavedFile,
+                                      UploadToBlockchain:true,
+                                      VC: nil)
+            
         }
         
-
-//        let path = URL.urlInDocumentsDirectory(with: fileName).path
-//        let imageFromFile = UIImage(contentsOfFile: path)!
-        //self.saveAsCID(image: jpegImage, path: "")
     }
     
     func addImageMetadata(imageData: Data) -> Data? {
@@ -102,7 +100,7 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
     }
     
     
-    func generateFileName() -> String{
+    func generateFileName() -> (String, Date){
         let date = Date()
         let calendar = Calendar.current
         let hour = String(calendar.component(.hour, from: date))
@@ -113,30 +111,24 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         let month = String(calendar.component(.month, from: date))
         let year = String(calendar.component(.year, from: date))
         let fileName = String(month + "-" + day + "-" + year + "_" + hour + ":" + minutes + ":" + seconds + ":" + milliseconds) 
-        return fileName + ".jpg"
+        return (fileName + ".jpg", date)
     }
     
-    
-    func AddPictureToDocumentsToUploadLater(fileName:String){
-        var filesToUpload = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
-        filesToUpload.append(fileName)
-        UserDefaults.standard.set(filesToUpload,forKey: "offlineQueue")
-    }
     
 
     
     public static func uploadToIPFS(image:Data,
-                                    fileName:String,
+                                    file:CorroDataFile,
                                     UploadToBlockchain:Bool,
-                                    VC:UIViewController?,
-                                    FileFinishedHandler:OfflineImageHandler?){
+                                    VC:UIViewController?
+                                    ){
         let fullUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"
         
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(image,
                                      withName: "file",
-                                     fileName: fileName,
+                                     fileName: file.FileName,
                                      mimeType: "image/jpeg")
         },
                          to: fullUrl,
@@ -152,9 +144,8 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                                     guard response.result.isSuccess,
                                         let value = response.result.value else {
                                             print("Error while uploading file: \(String(describing: response.result.error))")
-                                            if (FileFinishedHandler != nil){
-                                                FileFinishedHandler?.OnFileUploadError();
-                                            }
+                                            DataManager.OnFileUploadError();
+                                        
                                             return
                                     }
 
@@ -164,12 +155,11 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
                                     let cid = json["IpfsHash"].stringValue
                                     print("Content uploaded with ID: \(cid)")
                                     if (VC != nil){
-                                        ImageSaver.ShowUploadedNotification(VC: VC!, CID: cid)
+                                        ImageHandler.ShowUploadedNotification(VC: VC!, CID: cid)
                                     }
                                     
-                                    if (FileFinishedHandler != nil){
-                                        FileFinishedHandler?.OnFileUploadFinish(image: image, fileName: fileName)
-                                    }
+                                    DataManager.OnFileUploadFinish(file: file)
+                                    
                                     if (UploadToBlockchain){
                                         BlockchainManager.UploadCIDToEthereum(CID: cid, sourceMetadata: image)
                                     }
@@ -198,7 +188,7 @@ class ImageSaver: NSObject, TWCameraViewDelegate{
         let ethereumAddress = "0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885"
         let alert = UIAlertController(title: "Success", message: "Image at: "+prefix+CID + " and on Ethereum blockchain contract address: " + ethereumAddress, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Show me", style: UIAlertAction.Style.default, handler: { (uiAlert) in ImageSaver.OpenWebpage(urlString: prefix+CID)}
+        alert.addAction(UIAlertAction(title: "Show me", style: UIAlertAction.Style.default, handler: { (uiAlert) in ImageHandler.OpenWebpage(urlString: prefix+CID)}
         ))
         VC.present(alert, animated: true, completion: nil)
     }

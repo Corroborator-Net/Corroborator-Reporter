@@ -9,36 +9,51 @@
 import UIKit
 
 class FileTableViewCell: UITableViewCell {
-var FileLabel: UILabel?
+//var FileLabel: UILabel?
+    @IBOutlet weak var ThumbnailView: UIImageView!
+    @IBOutlet weak var StatusLabel: UILabel!
+    @IBOutlet weak var FileLabel: UILabel!
     
-    
-    public func AddFileData(fileName:String){
-        if (FileLabel == nil)
-        {
-            let label = UILabel(frame: CGRect(x: 20, y: 20, width: 300, height: 20))
-            FileLabel = label
-            addSubview(label)
+    public func AddFileData(file:CorroDataFile){
+        FileLabel.text = file.FileName
+        StatusLabel.text = "Unsynced"
+        StatusLabel.textColor = UIColor.red
+
+        if (file.Synced){
+           MarkAsSynced()
         }
-        FileLabel!.text = fileName
+        
+        ThumbnailView.image = file.GetThumbnailImage()
+
+    }
+    
+    public func MarkAsUploading(){
+        StatusLabel.text = "uploading..."
+
+    }
+    
+    public func MarkAsSynced(){
+        StatusLabel.text = "Synced"
+        StatusLabel.textColor = UIColor.green
     }
     
     public func ClearFileData(){
-        if (FileLabel != nil)
-        {
-            FileLabel!.text = ""
-        }
-    }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+        FileLabel.text = ""
+        StatusLabel.text = ""
+        ThumbnailView.image = nil
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
+    
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+//
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        // Configure the view for the selected state
+//    }
 
 }

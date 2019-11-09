@@ -14,7 +14,7 @@ import CoreLocation
 class CameraViewController: UIViewController, CLLocationManagerDelegate {
     
     static var locationManager:CLLocationManager?
-    var vc:FileTableViewController?
+//    var vc:FileTableViewController?
 
     public func InitGeolocation(){
         CameraViewController.locationManager = CLLocationManager()
@@ -26,7 +26,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     var cameraView: TWCameraView?
-    let imageSaver:ImageSaver = ImageSaver()
+    let imageSaver:ImageHandler = ImageHandler()
     static var threadId:String = ""
 
 
@@ -35,7 +35,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         InitGeolocation()
 
         // Set the Textile delegate to self so we can make use of events such nodeStarted
-        vc = FileTableViewController()
+//        vc = FileTableViewController()
         let height:CGFloat = 515
         cameraView = TWCameraView(frame: CGRect(x: 0, y: 0, width: height/1.5, height: height))
         cameraView!.translatesAutoresizingMaskIntoConstraints = false
@@ -64,12 +64,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         cameraView!.capturePhoto()
     }
     
-//    
-//    @IBAction func OfflineQueueButtonPressed(_ sender: Any) {
-//        navigationController?.show(vc!, sender: self)
-//        
-//        
-//    }
+
     
     
 

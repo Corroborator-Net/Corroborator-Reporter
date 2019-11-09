@@ -66,7 +66,7 @@ class BlockchainManager{
         let date = dateFormatter.date(from:isoDate)!
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy HH:mm:ss"
+        formatter.dateFormat = Constants.FileNameDateFormat
         return formatter.string(from: date)
     }
     

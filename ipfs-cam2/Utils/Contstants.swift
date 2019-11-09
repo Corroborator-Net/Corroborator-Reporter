@@ -12,5 +12,6 @@ import CoreGraphics
 class Constants:NSObject{
     static let quality:CGFloat = 0.7
     static let UserKey:String = "your key"
-    
+    static let FileNameDateFormat = "dd MMM yyyy HH:mm:ss"
+
 }

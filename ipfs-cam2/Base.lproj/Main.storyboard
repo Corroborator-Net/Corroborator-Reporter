@@ -29,18 +29,58 @@
         <scene sceneID="hVg-cZ-Oxr">
             <objects>
                 <tableViewController storyboardIdentifier="FileTableViewController" title="Offline Queue" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WKf-l4-w12" customClass="FileTableViewController" customModule="ipfs_cam2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTh-4Q-3xI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTh-4Q-3xI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="fileCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" id="7XK-0U-tS2" customClass="FileTableViewCell" customModule="ipfs_cam2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="fileCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="70" id="7XK-0U-tS2" customClass="FileTableViewCell" customModule="ipfs_cam2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7XK-0U-tS2" id="FWS-G9-vQ2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em1-km-rQg">
+                                            <rect key="frame" x="20" y="11" width="190" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="190" id="0vQ-jA-ffe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsynced" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-Z8-LRw">
+                                            <rect key="frame" x="218" y="11" width="110" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="110" id="KrP-Tt-dBx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-Di-ixC">
+                                            <rect key="frame" x="336" y="0.0" width="70" height="70"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="em1-km-rQg" firstAttribute="leading" secondItem="FWS-G9-vQ2" secondAttribute="leadingMargin" id="9fV-Oe-TeE"/>
+                                        <constraint firstItem="iHG-Di-ixC" firstAttribute="leading" secondItem="b7v-Z8-LRw" secondAttribute="trailing" constant="8" id="DoX-Jp-vWo"/>
+                                        <constraint firstItem="iHG-Di-ixC" firstAttribute="top" secondItem="FWS-G9-vQ2" secondAttribute="top" id="Twb-BJ-V8E"/>
+                                        <constraint firstItem="b7v-Z8-LRw" firstAttribute="top" secondItem="FWS-G9-vQ2" secondAttribute="topMargin" id="WE0-94-Yr7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="b7v-Z8-LRw" secondAttribute="bottom" id="Xxh-Eb-jmU"/>
+                                        <constraint firstItem="em1-km-rQg" firstAttribute="top" secondItem="FWS-G9-vQ2" secondAttribute="topMargin" id="YAC-Oo-OS0"/>
+                                        <constraint firstItem="b7v-Z8-LRw" firstAttribute="leading" secondItem="em1-km-rQg" secondAttribute="trailing" constant="8" id="b1L-F6-i8Y"/>
+                                        <constraint firstAttribute="trailing" secondItem="iHG-Di-ixC" secondAttribute="trailing" constant="8" id="htB-X3-RyU"/>
+                                        <constraint firstAttribute="bottom" secondItem="iHG-Di-ixC" secondAttribute="bottom" id="qJf-kb-rZl"/>
+                                        <constraint firstItem="em1-km-rQg" firstAttribute="bottom" secondItem="FWS-G9-vQ2" secondAttribute="bottomMargin" id="w8L-dd-Pkd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="FileLabel" destination="em1-km-rQg" id="YdW-N3-YQg"/>
+                                    <outlet property="StatusLabel" destination="b7v-Z8-LRw" id="5by-pk-dFm"/>
+                                    <outlet property="ThumbnailView" destination="iHG-Di-ixC" id="SSV-vA-ief"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +91,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tu-cX-zkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720" y="96"/>
+            <point key="canvasLocation" x="1718.840579710145" y="95.758928571428569"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="TUI-o5-D7M">
@@ -84,17 +124,17 @@
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TA-P9L" userLabel="settings">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="70"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-settings-100.png"/>
+                                                <state key="normal" image="icons8-settings-100"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-oS-8ZV" userLabel="camera">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="70"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-camera-100.png"/>
+                                                <state key="normal" image="icons8-camera-100"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNh-67-aai" userLabel="files">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="70"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-folder-100.png"/>
+                                                <state key="normal" image="icons8-folder-100"/>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -192,8 +232,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-camera-100.png" width="100" height="100"/>
-        <image name="icons8-folder-100.png" width="100" height="100"/>
-        <image name="icons8-settings-100.png" width="100" height="100"/>
+        <image name="icons8-camera-100" width="100" height="100"/>
+        <image name="icons8-folder-100" width="100" height="100"/>
+        <image name="icons8-settings-100" width="100" height="100"/>
     </resources>
 </document>

@@ -13,7 +13,8 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     var helloWorldTimer:Timer?
     let uploadFileTitle:String = "uploading..."
     var currentFileToUploadIndex:Int = 0
-    var offlineDictionary:[String] = []
+    var offlineFileList:[CorroDataFile] = []
+    var syncedFileList:[CorroDataFile] = []
     var currentlyUploading = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,21 +25,26 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     }
     
     public func RefreshCellRowsWithFileNames(){
-    
         // check if unsynced files
-        offlineDictionary = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
-        if (offlineDictionary.count==0){
-            print("no files to upload")
-            return
-        }
+        offlineFileList = DataManager.GetUnSyncedFiles()
+        syncedFileList = DataManager.GetSyncedFiles()
         
-        // populate rows with file names
-        for i in 0...offlineDictionary.count-1 {
-            let cell =  tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? FileTableViewCell
-            cell?.AddFileData(fileName: offlineDictionary[i])
         
-        }
+        let lastIndex = PopulateRows(startAt: 0, files: offlineFileList)
+        PopulateRows(startAt: lastIndex + 1, files: syncedFileList)
 
+    }
+    
+    private func PopulateRows(startAt:Int, files:[CorroDataFile]) -> Int{
+        if (files.count==0){
+            return startAt - 1
+        }
+        // populate rows with file names
+        for i in 0...files.count-1 {
+            let cell =  tableView.cellForRow(at: IndexPath(row: startAt + i, section: 0)) as? FileTableViewCell
+            cell?.AddFileData(file: files[i])
+        }
+        return startAt + files.count - 1
     }
     
     
@@ -58,9 +64,9 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         
         
         // check if unsynced files
-        offlineDictionary = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
-        if (offlineDictionary.count==0){
-            print("no files to upload")
+        offlineFileList = DataManager.GetUnSyncedFiles()
+        if (offlineFileList.count==0){
+//            print("no files to upload")
             return
         }
         
@@ -70,13 +76,20 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         }
 
 
-        let currentFileToUpload = offlineDictionary.last!
-        currentFileToUploadIndex = offlineDictionary.count-1
+        let currentFileToUpload = offlineFileList.last!
+        
+        if (DataManager.CurrentlyUploading.contains(currentFileToUpload.FileName)){
+            print("currently uploading")
+            return
+        }
+        
+        currentFileToUploadIndex = offlineFileList.count-1
         // show user we're uploading file
-        let cell =  tableView.cellForRow(at: IndexPath(row: offlineDictionary.count-1, section: 0)) as? FileTableViewCell
-        cell?.FileLabel!.text = uploadFileTitle
-        let image = self.load(fileName: currentFileToUpload)!
-        ImageSaver.uploadToIPFS(image: image, fileName:currentFileToUpload, UploadToBlockchain:true, VC: self, FileFinishedHandler: self)
+        let cell =  tableView.cellForRow(at: IndexPath(row: currentFileToUploadIndex, section: 0)) as! FileTableViewCell
+        cell.MarkAsUploading()
+        
+        let image = self.load(fileName: currentFileToUpload.FileName)!
+        ImageHandler.uploadToIPFS(image: image, file:currentFileToUpload, UploadToBlockchain:true, VC: self)
         // for now we're uploading images serially for simplicity's sake
         currentlyUploading=true
     }
@@ -89,16 +102,10 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     }
     
     // Restarts file upload and removes uploaded file
-    public func OnFileUploadFinish(image:Data?, fileName: String){
+    public func OnFileUploadFinish(file:CorroDataFile){
 
         let cell =  tableView.cellForRow(at: IndexPath(row: currentFileToUploadIndex, section: 0)) as? FileTableViewCell
-        cell?.FileLabel!.text=""
-
-        // remove file path from dictionary - we just uploaded it
-        var newOfflineDictionary = offlineDictionary
-        newOfflineDictionary.remove(at: currentFileToUploadIndex)
-        UserDefaults.standard.set(newOfflineDictionary,forKey: "offlineQueue")
-        
+        cell?.MarkAsSynced()
         currentlyUploading=false
         
         // start upoad process over again for next file in dict
@@ -122,20 +129,17 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     
     
     override func viewDidLoad() {
-        self.tableView.register(FileTableViewCell.self, forCellReuseIdentifier: "fileCell")
+//        self.tableView.register(FileTableViewCell.self, forCellReuseIdentifier: "fileCell")
         tableView.delegate=self
         tableView.dataSource=self
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 60.0 // Adjust Primary table height
+//        tableView.rowHeight = UITableView.automaticDimension
+        helloWorldTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.ReloadUnsyncedFilesAndStartUpload), userInfo: nil, repeats: true)
         
-        helloWorldTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(OfflineImageHandler.ReloadUnsyncedFilesAndStartUpload), userInfo: nil, repeats: true)
-        
+        DataManager.fileUploadDelegate=self
         // check if unsynced files
-        offlineDictionary = UserDefaults.standard.stringArray(forKey: "offlineQueue") ?? [String]()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        offlineFileList = DataManager.GetUnSyncedFiles()
     }
 
     
@@ -146,7 +150,10 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        // TODO: fix this
+        let offline = DataManager.GetUnSyncedFiles().count
+        let syncedFileCount = DataManager.GetSyncedFiles().count
+        return offline + syncedFileCount + 10
     }
 
 //
@@ -154,8 +161,11 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
         cell.ClearFileData()
 
-        if (indexPath.row < offlineDictionary.count){
-            cell.AddFileData(fileName: offlineDictionary[indexPath.row])
+        if (indexPath.row < offlineFileList.count){
+            cell.AddFileData(file: offlineFileList[indexPath.row])
+        }
+        else if(indexPath.row < syncedFileList.count){
+            cell.AddFileData(file: syncedFileList[indexPath.row])
         }
         
         return cell
@@ -176,10 +186,11 @@ class FileTableViewController: UITableViewController, OfflineImageHandler {
 
 
 }
-
-@objc protocol OfflineImageHandler{
-    func OnFileUploadFinish(image:Data?, fileName: String);
-    func ReloadUnsyncedFilesAndStartUpload ();
+//@objc
+protocol OfflineImageHandler{
+    func OnFileUploadFinish(file:CorroDataFile);
     func OnFileUploadError();
-
 }
+//@objc extension OfflineImageHandler{
+//    func ReloadUnsyncedFilesAndStartUpload ();
+//}
