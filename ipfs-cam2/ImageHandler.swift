@@ -26,27 +26,41 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
         let jpeg = addImageMetadata(imageData: imageData)!
         let jpegImage = UIImage.init(data: jpeg)!
         
-        self.saveToLibrary(image: jpegImage)
+        // if we're not deleting local photos, save it to the user's photo roll
+        if (!SettingsVC.DeleteLocalPhotos){
+            self.saveToPhotoRoll(image: jpegImage)
+        }
+        
+        if (SettingsVC.DeleteLocalPhotos){
+            print("TODO: when we set up a local node, let's delete the file upon CID generation")
+        }
         
         let( fileName, date) = generateFileName()
-        // if connected, upload to network
+        // TODO: don't do this when we have a local node
         ImageHandler.saveToDocuments(image: jpeg, fileName: fileName)
+        
         let newSavedFile = CorroDataFile(
             ThumbnailData: CorroDataFile.ProduceThumbnail(image: jpegImage),
             FileName: fileName,
             Synced:false,
             DateTaken:date)
+
+        // mark file as unsynced in our file database
         DataManager.AddFileToSyncLater(file: newSavedFile)
 
+        // start the upload and save it to the currently uploading cache
         if Reachability.isConnectedToNetwork()
         {
+            if (!SettingsVC.UploadToAuditorNode){
+                print("TODO: when we integrate local node, don't upload to IPFS")
+            }
+            
+            // if the user quits the app with this cache full of files, our local DB
+            // will know they're still unsynced and will sync them on restart
             DataManager.CurrentlyUploading.append(newSavedFile.FileName)
-            // save to docs so we have an image with matching CID on the mobile device
             ImageHandler.uploadToIPFS(image: jpeg,
                                       file: newSavedFile,
-                                      UploadToBlockchain:true,
                                       VC: nil)
-            
         }
         
     }
@@ -62,7 +76,7 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
         let arbitraryData = NSMutableDictionary()
 
         let commentData = ExifComment(
-        device_id: UIDevice.current.identifierForVendor!.uuidString, department: "Los Angeles Police Deparment", purpose: SettingsVC.CurrentPhotoPurpose, device_model: modelIdentifier(), user_name: "Ian P");
+            device_id: UIDevice.current.identifierForVendor!.uuidString, department: "Los Angeles Police Deparment", purpose: SettingsVC.CurrentPhotoPurpose, device_model: modelIdentifier(), user_name: "Ian P", investigation_id:SettingsVC.CurrentInvestigationID);
         
         let jsonData = try! JSONEncoder().encode(commentData)
         let jsonString = String(data: jsonData, encoding: .utf8)!
@@ -119,7 +133,6 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
     
     public static func uploadToIPFS(image:Data,
                                     file:CorroDataFile,
-                                    UploadToBlockchain:Bool,
                                     VC:UIViewController?
                                     ){
         let fullUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"
@@ -159,11 +172,13 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
                                     }
                                     
                                     DataManager.OnFileUploadFinish(file: file)
+                                
+                                    BlockchainManager.UploadCIDToEthereum(CID: cid, sourceMetadata: image)
                                     
-                                    if (UploadToBlockchain){
-                                        BlockchainManager.UploadCIDToEthereum(CID: cid, sourceMetadata: image)
-                                    }
+                                    if (!SettingsVC.UploadToAuditorNode){
+                                        print("TODO: delete file uploaded to IPFS")
 
+                                    }
                                     
                                     //3
 //                                    completion(nil, nil)
@@ -176,10 +191,30 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
     }
     
     
+    
+    static func remove(fileName: String){
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let fileURL = documentsDirectory!.appendingPathComponent(fileName)
+            do{
+                try FileManager.default.removeItem(at: fileURL)
+            } catch{
+                print("Error deleting image : \(error)")
+    
+            }
+        }
+    
 
-    
-    
-    
+    public static func load(fileName: String) -> Data? {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let fileURL = documentsDirectory!.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return imageData
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
     
 
     
@@ -289,7 +324,7 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
 //    }
     
     
-    func saveToLibrary(image:UIImage){
+    func saveToPhotoRoll(image:UIImage){
         
        
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)

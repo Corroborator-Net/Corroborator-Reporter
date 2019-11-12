@@ -12,7 +12,7 @@ class MainPageViewController: UIPageViewController, UIPageViewControllerDataSour
     
     public var PageChangeReactor:PageChangeReactor?
     public var CurrentIndex:Int=1
-    public lazy var subViewControllers:[UIViewController] = {
+    public var subViewControllers:[UIViewController] = {
         return[
             UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC,
             UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController,
@@ -55,6 +55,7 @@ class MainPageViewController: UIPageViewController, UIPageViewControllerDataSour
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
+        
         CurrentIndex = 1
         setViewControllers([subViewControllers[CurrentIndex]], direction: .forward, animated: true, completion: nil)
         // Do any additional setup after loading the view.

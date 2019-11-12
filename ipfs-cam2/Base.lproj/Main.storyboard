@@ -60,7 +60,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-Di-ixC">
-                                            <rect key="frame" x="336" y="0.0" width="70" height="70"/>
+                                            <rect key="frame" x="336" y="0.0" width="70" height="69.5"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -123,18 +123,30 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TA-P9L" userLabel="settings">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="70"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-settings-100"/>
+                                                <state key="normal" image="icons8-settings-100">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-oS-8ZV" userLabel="camera">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="70"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-camera-100"/>
+                                                <state key="normal" image="icons8-camera-100">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNh-67-aai" userLabel="files">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="70"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="10" maxX="40" maxY="20"/>
-                                                <state key="normal" image="icons8-folder-100"/>
+                                                <state key="normal" image="icons8-folder-100">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -188,42 +200,145 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Purpose - only applies after setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-eM-R96">
-                                <rect key="frame" x="20" y="64" width="374" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Purpose - applied after setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-eM-R96">
+                                <rect key="frame" x="8" y="158" width="398" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="aIH-Wq-etM"/>
+                                    <constraint firstAttribute="height" constant="40" id="ADa-bL-gkF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter purpose of photo(s) here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahN-LN-r9Y">
-                                <rect key="frame" x="20" y="144" width="374" height="60"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter purpose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahN-LN-r9Y">
+                                <rect key="frame" x="20" y="206" width="374" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="xSa-P9-z1j"/>
+                                    <constraint firstAttribute="height" constant="50" id="HqZ-Ma-Obi"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="PhotoPurposeEditingEnded:" destination="n6e-yd-kJK" eventType="editingDidEndOnExit" id="caa-MZ-oO1"/>
+                                    <action selector="PhotoPurposeEdited:" destination="n6e-yd-kJK" eventType="editingChanged" id="nRh-3o-vUf"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encryption Key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-Nw-wSF">
+                                <rect key="frame" x="8" y="52" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="FSE-Hr-Bwc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Encryption Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-6R-RTh">
+                                <rect key="frame" x="20" y="100" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fdN-eo-bdS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="EncryptionKeyEdited:" destination="n6e-yd-kJK" eventType="editingChanged" id="5La-02-eUD"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter investigation ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9z5-h8-cs2">
+                                <rect key="frame" x="20" y="312" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FpG-qF-VZf"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="InvestigationIDEdited:" destination="n6e-yd-kJK" eventType="editingChanged" id="a4l-q3-Ulo"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Photos to Auditor File Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-uv-O64">
+                                <rect key="frame" x="8" y="370" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lla-uf-Tbe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Investigation ID - applied after setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYC-C6-4s3">
+                                <rect key="frame" x="8" y="264" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="A8I-vf-Dlz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cFi-Od-BWr">
+                                <rect key="frame" x="182.5" y="418" width="51" height="31"/>
+                                <connections>
+                                    <action selector="UploadToAuditorNodeValueChanged:" destination="n6e-yd-kJK" eventType="valueChanged" id="eUL-FD-Jbj"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Photos on Device after Upload to Auditor" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaO-RE-O67">
+                                <rect key="frame" x="8" y="457" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="k3g-Ca-GKG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="avi-kH-UjI">
+                                <rect key="frame" x="182.5" y="505" width="51" height="31"/>
+                                <connections>
+                                    <action selector="DeleteLocalPhotosValueChanged:" destination="n6e-yd-kJK" eventType="valueChanged" id="ZK7-7F-jDw"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="top" secondItem="4BP-eM-R96" secondAttribute="bottom" constant="20" id="Lqk-eH-vmd"/>
-                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="ahN-LN-r9Y" secondAttribute="trailing" constant="20" id="VMk-5F-uxh"/>
-                            <constraint firstItem="4BP-eM-R96" firstAttribute="top" secondItem="z1L-JH-Ju4" secondAttribute="top" constant="20" id="Ytj-36-MqX"/>
-                            <constraint firstItem="4BP-eM-R96" firstAttribute="centerX" secondItem="Ywp-KD-LbU" secondAttribute="centerX" id="c5P-TT-BBs"/>
-                            <constraint firstItem="4BP-eM-R96" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="flr-D2-orq"/>
-                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="qq1-MZ-m6e"/>
-                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="4BP-eM-R96" secondAttribute="trailing" constant="20" id="vFu-LK-HrN"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="4BP-eM-R96" secondAttribute="trailing" constant="8" id="0NA-ir-Yv1"/>
+                            <constraint firstItem="MaO-RE-O67" firstAttribute="top" secondItem="cFi-Od-BWr" secondAttribute="bottom" constant="8" id="3ht-Tp-epA"/>
+                            <constraint firstItem="ofh-uv-O64" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="8" id="4Hb-Rp-ZBp"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="top" secondItem="CuG-6R-RTh" secondAttribute="bottom" constant="8" id="5wx-r3-6Xz"/>
+                            <constraint firstItem="avi-kH-UjI" firstAttribute="top" secondItem="MaO-RE-O67" secondAttribute="bottom" constant="8" id="6p7-46-x4T"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="MaO-RE-O67" secondAttribute="trailing" constant="8" id="DP7-LK-SXb"/>
+                            <constraint firstItem="EYC-C6-4s3" firstAttribute="top" secondItem="ahN-LN-r9Y" secondAttribute="bottom" constant="8" id="Das-su-dd1"/>
+                            <constraint firstItem="EYC-C6-4s3" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="8" id="Grk-zu-Pvp"/>
+                            <constraint firstItem="cFi-Od-BWr" firstAttribute="top" secondItem="ofh-uv-O64" secondAttribute="bottom" constant="8" id="GxF-Ae-N9g"/>
+                            <constraint firstItem="rvg-Nw-wSF" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="8" id="JqN-Va-saL"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="EYC-C6-4s3" secondAttribute="trailing" constant="8" id="Qk9-HK-jcj"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="ahN-LN-r9Y" secondAttribute="trailing" constant="20" id="RVI-OS-3sz"/>
+                            <constraint firstItem="MaO-RE-O67" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="8" id="Tsb-i1-L5O"/>
+                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="XZo-WU-PBl"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="ofh-uv-O64" secondAttribute="trailing" constant="8" id="Xkn-KQ-4Uu"/>
+                            <constraint firstItem="CuG-6R-RTh" firstAttribute="top" secondItem="rvg-Nw-wSF" secondAttribute="bottom" constant="8" id="Yum-He-Dsu"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="9z5-h8-cs2" secondAttribute="trailing" constant="20" id="bAw-ta-Cfz"/>
+                            <constraint firstItem="CuG-6R-RTh" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="bFy-tt-KBb"/>
+                            <constraint firstItem="CuG-6R-RTh" firstAttribute="top" secondItem="rvg-Nw-wSF" secondAttribute="bottom" constant="8" id="c0Q-MD-Nak"/>
+                            <constraint firstItem="EYC-C6-4s3" firstAttribute="top" secondItem="ahN-LN-r9Y" secondAttribute="bottom" constant="8" id="fDC-Sg-cAv"/>
+                            <constraint firstItem="9z5-h8-cs2" firstAttribute="top" secondItem="EYC-C6-4s3" secondAttribute="bottom" constant="8" id="ftE-lb-yAn"/>
+                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="top" secondItem="4BP-eM-R96" secondAttribute="bottom" constant="8" id="gQl-LZ-RVC"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="top" secondItem="CuG-6R-RTh" secondAttribute="bottom" constant="8" id="h7b-Dp-qcm"/>
+                            <constraint firstItem="avi-kH-UjI" firstAttribute="centerX" secondItem="Ywp-KD-LbU" secondAttribute="centerX" id="hHe-qS-aO8"/>
+                            <constraint firstItem="ahN-LN-r9Y" firstAttribute="top" secondItem="4BP-eM-R96" secondAttribute="bottom" constant="8" id="iD9-8q-Gao"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="CuG-6R-RTh" secondAttribute="trailing" constant="20" id="jyi-ap-pBo"/>
+                            <constraint firstItem="z1L-JH-Ju4" firstAttribute="trailing" secondItem="rvg-Nw-wSF" secondAttribute="trailing" constant="8" id="kVS-NM-OFx"/>
+                            <constraint firstItem="9z5-h8-cs2" firstAttribute="top" secondItem="EYC-C6-4s3" secondAttribute="bottom" constant="8" id="m1H-fM-9l7"/>
+                            <constraint firstItem="cFi-Od-BWr" firstAttribute="centerX" secondItem="Ywp-KD-LbU" secondAttribute="centerX" id="mIb-e7-tDE"/>
+                            <constraint firstItem="ofh-uv-O64" firstAttribute="top" secondItem="9z5-h8-cs2" secondAttribute="bottom" constant="8" id="mU9-xH-nHD"/>
+                            <constraint firstItem="rvg-Nw-wSF" firstAttribute="top" secondItem="z1L-JH-Ju4" secondAttribute="top" constant="8" id="rYx-Pv-Wfu"/>
+                            <constraint firstItem="ofh-uv-O64" firstAttribute="top" secondItem="9z5-h8-cs2" secondAttribute="bottom" constant="8" id="uBJ-9u-ErX"/>
+                            <constraint firstItem="4BP-eM-R96" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="8" id="ud3-Dh-OSl"/>
+                            <constraint firstItem="9z5-h8-cs2" firstAttribute="leading" secondItem="z1L-JH-Ju4" secondAttribute="leading" constant="20" id="xJK-wG-V2p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z1L-JH-Ju4"/>
                     </view>
                     <connections>
+                        <outlet property="DeletePhotosSwitch" destination="avi-kH-UjI" id="pD3-bI-PY7"/>
+                        <outlet property="EncryptionKeyField" destination="CuG-6R-RTh" id="YYF-su-YFw"/>
+                        <outlet property="InvestigationIDField" destination="9z5-h8-cs2" id="7g9-23-kC4"/>
                         <outlet property="PurposeField" destination="ahN-LN-r9Y" id="QTP-oh-0eJ"/>
+                        <outlet property="UploadToAuditorSwitch" destination="cFi-Od-BWr" id="qSV-6j-wwp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSC-F0-gff" userLabel="First Responder" sceneMemberID="firstResponder"/>

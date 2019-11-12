@@ -23,7 +23,6 @@
 		C54EC34A237376D000676301 /* BlockchainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54EC349237376D000676301 /* BlockchainManager.swift */; };
 		C555C8F32375E03F0078D92C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555C8F22375E03F0078D92C /* DataManager.swift */; };
 		C591B2342374888000647457 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2332374888000647457 /* MainPageViewController.swift */; };
-		C591B2502374EF8500647457 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B24F2374EF8500647457 /* TabsView.swift */; };
 		C591B2522374F09500647457 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2512374F09500647457 /* ParentViewController.swift */; };
 		C591B2532374F2EE00647457 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = C591B24B2374EED900647457 /* CryptLib.m */; };
 		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
@@ -110,7 +109,6 @@
 		C591B2332374888000647457 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		C591B24A2374EED900647457 /* CryptLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptLib.h; sourceTree = "<group>"; };
 		C591B24B2374EED900647457 /* CryptLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptLib.m; sourceTree = "<group>"; };
-		C591B24F2374EF8500647457 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		C591B2512374F09500647457 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		C5947ABD2340307D00720E7A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACF715233E9DD700637EC3 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */,
 				C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */,
 				C52999E0233E7B6800944082 /* CameraViewController.swift */,
-				C591B24F2374EF8500647457 /* TabsView.swift */,
 				C5465C682368DD5500C48A26 /* SettingsVC.swift */,
 				C5ACF715233E9DD700637EC3 /* ImageHandler.swift */,
 				C555C8F22375E03F0078D92C /* DataManager.swift */,
@@ -469,7 +466,6 @@
 				C5AD227C2340419100AF2864 /* Network.swift in Sources */,
 				C5465C652368C03F00C48A26 /* Extensions.swift in Sources */,
 				C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */,
-				C591B2502374EF8500647457 /* TabsView.swift in Sources */,
 				C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */,
 				C591B2342374888000647457 /* MainPageViewController.swift in Sources */,
 				C5C00728236C966100E0F8F9 /* ExifCommentData.swift in Sources */,

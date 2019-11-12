@@ -14,4 +14,5 @@ struct ExifComment: Codable{
     var purpose:String
     var device_model:String
     var user_name:String
+    var investigation_id:String
 }

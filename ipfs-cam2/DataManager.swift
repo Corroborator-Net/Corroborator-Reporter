@@ -15,15 +15,23 @@ class DataManager: NSObject{
     
     private static let offlineKey:String = "offlineQueue"
     private static let syncedKey:String = "syncedFiles"
-    public static var fileUploadDelegate:OfflineImageHandler?
+    public static var fileUploadDelegate:[ImageFileHandler] = []
     
+
     static func OnFileUploadFinish(file: CorroDataFile) {
         SetAsSynced(file: file)
-        fileUploadDelegate?.OnFileUploadFinish(file: file)
+        fileUploadDelegate.forEach({(imageFileHandler) -> Void
+            in
+            imageFileHandler.OnFileUploadFinish(file: file)
+        })        
     }
     
+    
     static func OnFileUploadError() {
-        fileUploadDelegate?.OnFileUploadError()
+        fileUploadDelegate.forEach({(imageFileHandler) -> Void
+            in
+            imageFileHandler.OnFileUploadError()
+        })
     }
     
 
@@ -43,7 +51,10 @@ class DataManager: NSObject{
                     return corroDataFile.FileName == file.FileName
         })!)
         
-        CurrentlyUploading.remove(at: CurrentlyUploading.firstIndex(of:file.FileName)!)
+        if let index = CurrentlyUploading.firstIndex(of:file.FileName){
+            CurrentlyUploading.remove(at: index)
+        }
+
 
         
         SaveNewFileList(files: newOfflineDictionary, key:offlineKey)
@@ -87,13 +98,7 @@ struct CorroDataFile:Codable{
     public var FileName:String
     public var Synced:Bool
     public var DateTaken:Date
-//    func GetDateFromName() -> Date{
-//        let formatter = DateFormatter()
-//        formatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-//        formatter.dateFormat = "dd-MMM-yyyy_HH:mm:ss:ms"
-//        return formatter.date(from: self.FileName)!
-//
-//    }
+
     
     static func ProduceThumbnail(image:UIImage) -> Data{
         return image.resizeImage(100, opaque: true, contentMode: .scaleAspectFit).jpegData(compressionQuality: 0.5)!

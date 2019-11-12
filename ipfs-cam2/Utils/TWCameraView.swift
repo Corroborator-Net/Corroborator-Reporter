@@ -231,7 +231,12 @@ public class TWCameraView: UIView {
             requestCapturePermission() { [unowned self] permissionGranted in
                 
                 if permissionGranted {
+                    if self.captureSession == nil {
+                        self.setupCaptureSession()
+                    }
+                    
                     self.captureSession?.startRunning()
+                    
                 }
                 
             }

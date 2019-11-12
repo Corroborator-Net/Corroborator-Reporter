@@ -21,7 +21,7 @@ class BlockchainManager{
         
         let (dateTime, location) = BlockchainManager.GetMetadata(image: sourceMetadata)
 
-        let key = Constants.UserKey
+        let key = SettingsVC.UserEncryptionKey
         let records : [String] = [Encrypt(plainText: CID, key: key), Encrypt(plainText: dateTime, key: key), Encrypt(plainText: location, key: key)]
     
         

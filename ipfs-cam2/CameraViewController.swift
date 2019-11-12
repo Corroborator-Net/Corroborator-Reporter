@@ -64,12 +64,6 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         cameraView!.capturePhoto()
     }
     
-
-    
-    
-
-    
-    
     
     // MARK: - Navigation
 
