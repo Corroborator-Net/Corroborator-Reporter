@@ -66,6 +66,7 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
         
     }
     
+    // TODO: add orientation
     func addImageMetadata(imageData: Data) -> Data? {
         let imageMetadataDictionary = NSMutableDictionary()
 

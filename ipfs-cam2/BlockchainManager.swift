@@ -21,11 +21,16 @@ class BlockchainManager{
         
         let (dateTime, location) = BlockchainManager.GetMetadata(image: sourceMetadata)
 
+        
+        
         let key = SettingsVC.UserEncryptionKey
-        let records : [String] = [Encrypt(plainText: CID, key: key), Encrypt(plainText: dateTime, key: key), Encrypt(plainText: location, key: key)]
+        let records : [String] = [Encrypt(plainText: CID, key: key),
+                                  Encrypt(plainText: dateTime, key: key),
+                                  Encrypt(plainText: location, key: key),
+                                  Encrypt(plainText: SettingsVC.GetStorageLocationLiteral(), key: key)]
     
         
-        let parameters: Parameters = [ "tableId" : "1a86daa8-9bfa-4653-a9c4-365c280a16ec", "record" :  records]
+        let parameters: Parameters = [ "tableId" : Constants.DTableID, "record" :  records]
         let urlString = "https://api.atra.io/prod/v1/dtables/records"
         let headers: HTTPHeaders = ["x-api-key": "vdssu05AWO6yAG4ojL4Sv6I9RkAGCak19hBhTVpm"]
         let url = URL.init(string: urlString)

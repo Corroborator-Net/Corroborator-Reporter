@@ -53,6 +53,17 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
     @IBOutlet weak var DeletePhotosSwitch: UISwitch!
     
     
+    static func GetStorageLocationLiteral() -> String{
+        if (UploadToAuditorNode && DeleteLocalPhotos){
+            return "IPFS"
+        }
+        else if (UploadToAuditorNode && !DeleteLocalPhotos){
+            return "IPFS, DEVICE"
+        }
+        
+        return "DEVICE"
+    }
+    
     
     static func LoadSavedUserValues(){
         // fields

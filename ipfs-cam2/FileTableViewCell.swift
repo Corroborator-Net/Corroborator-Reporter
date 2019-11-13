@@ -16,7 +16,7 @@ class FileTableViewCell: UITableViewCell {
     
     public func AddFileData(file:CorroDataFile){
         FileLabel.text = file.FileName
-        StatusLabel.text = "Unsynced"
+        StatusLabel.text = "Pending"
         StatusLabel.textColor = UIColor.red
 
         if (file.Synced){
@@ -33,7 +33,7 @@ class FileTableViewCell: UITableViewCell {
     }
     
     public func MarkAsSynced(){
-        StatusLabel.text = "Synced"
+        StatusLabel.text = "Reported"
         StatusLabel.textColor = UIColor.green
     }
     
