@@ -25,7 +25,7 @@ class BlockchainManager{
         let records : [String] = [Encrypt(plainText: CID, key: key), Encrypt(plainText: dateTime, key: key), Encrypt(plainText: location, key: key)]
     
         
-        let parameters: Parameters = [ "tableId" : "b5c44420-799c-4ab9-8c0d-1045106fbd2d", "record" :  records]
+        let parameters: Parameters = [ "tableId" : "1a86daa8-9bfa-4653-a9c4-365c280a16ec", "record" :  records]
         let urlString = "https://api.atra.io/prod/v1/dtables/records"
         let headers: HTTPHeaders = ["x-api-key": "vdssu05AWO6yAG4ojL4Sv6I9RkAGCak19hBhTVpm"]
         let url = URL.init(string: urlString)

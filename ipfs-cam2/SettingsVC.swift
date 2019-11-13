@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import Alamofire
 
 class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
+
+    // Settings Delegate functions
+    
     func OnFileUploadFinish(file: CorroDataFile) {
         if (SettingsVC.DeleteLocalPhotos){
             ImageHandler.remove(fileName: file.FileName)
+        }
+        if (!SettingsVC.UploadToAuditorNode){
+            let parameters: Parameters = ["ipfs_pin_hash":file.CID!]
+            
+            Alamofire.request(Constants.RemovePinURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: Constants.PinataHeaders).response(completionHandler: {
+                response in
+                print("removed pin with status code: \(String(describing: response.response?.statusCode))")
+                if (response.error != nil){
+                    print("error: \(String(describing: response.error))")
+                }
+               })
         }
     }
     

@@ -218,6 +218,7 @@
 				C5ACF715233E9DD700637EC3 /* ImageHandler.swift */,
 				C555C8F22375E03F0078D92C /* DataManager.swift */,
 				C591B2512374F09500647457 /* ParentViewController.swift */,
+				C54EC349237376D000676301 /* BlockchainManager.swift */,
 				C591B2332374888000647457 /* MainPageViewController.swift */,
 				C54EC34523736F1000676301 /* ipfs-cam2-Bridging-Header.h */,
 				C51EC65D233E723300CAF01F /* Main.storyboard */,
@@ -268,7 +269,6 @@
 		C591B24D2374EF2100647457 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C54EC349237376D000676301 /* BlockchainManager.swift */,
 				C51EC660233E723300CAF01F /* ipfs_cam2.xcdatamodeld */,
 				C51EC659233E723300CAF01F /* AppDelegate.swift */,
 				C52999E2233E7BA100944082 /* TWCameraView.swift */,

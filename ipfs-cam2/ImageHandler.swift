@@ -43,7 +43,8 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
             ThumbnailData: CorroDataFile.ProduceThumbnail(image: jpegImage),
             FileName: fileName,
             Synced:false,
-            DateTaken:date)
+            DateTaken:date,
+            CID: nil)
 
         // mark file as unsynced in our file database
         DataManager.AddFileToSyncLater(file: newSavedFile)
@@ -135,7 +136,6 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
                                     file:CorroDataFile,
                                     VC:UIViewController?
                                     ){
-        let fullUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"
         
         
         Alamofire.upload(multipartFormData: { multipartFormData in
@@ -144,9 +144,8 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
                                      fileName: file.FileName,
                                      mimeType: "image/jpeg")
         },
-                         to: fullUrl,
-                         headers: ["pinata_api_key": "1e194bceca95c082feec",
-                            "pinata_secret_api_key":"4e6608680a18727d292df23f12d50520ed7346884831bdbbe577d441727ab359"],
+                         to: Constants.AddPinURL,
+                         headers: Constants.PinataHeaders,
                          encodingCompletion: { encodingResult in
                             switch encodingResult {
                             case .success(let upload, _, _):
@@ -166,22 +165,20 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
                                     // 2
                                     let json =  JSON(value)
                                     let cid = json["IpfsHash"].stringValue
+                                    
+                                    var fileWithCID = file
+                                    fileWithCID.CID = cid
+                                    
                                     print("Content uploaded with ID: \(cid)")
+                                    
                                     if (VC != nil){
                                         ImageHandler.ShowUploadedNotification(VC: VC!, CID: cid)
                                     }
                                     
-                                    DataManager.OnFileUploadFinish(file: file)
+                                    DataManager.OnFileUploadFinish(file: fileWithCID)
                                 
                                     BlockchainManager.UploadCIDToEthereum(CID: cid, sourceMetadata: image)
                                     
-                                    if (!SettingsVC.UploadToAuditorNode){
-                                        print("TODO: delete file uploaded to IPFS")
-
-                                    }
-                                    
-                                    //3
-//                                    completion(nil, nil)
                                 }
                             case .failure(let encodingError):
                                 print(encodingError)

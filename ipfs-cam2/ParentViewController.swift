@@ -33,7 +33,7 @@ class ParentViewController: UIViewController, PageChangeReactor {
         // Do any additional setup after loading the view.
         buttons = [SettingsButton, CameraButton, FilesButton]
         for i in 0...buttons.count-1 {
-//            buttons[i].tintColor = UIColor.blue
+
             buttons[i].isHighlighted = PageVC?.CurrentIndex==i
             buttons[i].addTarget(self, action:  #selector(switchPageButtonPressed(_:)), for: .touchUpInside)
         }

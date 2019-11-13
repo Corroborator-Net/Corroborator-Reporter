@@ -98,6 +98,7 @@ struct CorroDataFile:Codable{
     public var FileName:String
     public var Synced:Bool
     public var DateTaken:Date
+    public var CID:String?
 
     
     static func ProduceThumbnail(image:UIImage) -> Data{

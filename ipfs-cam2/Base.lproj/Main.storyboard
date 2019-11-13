@@ -237,7 +237,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="EncryptionKeyEdited:" destination="n6e-yd-kJK" eventType="editingChanged" id="5La-02-eUD"/>
                                 </connections>
