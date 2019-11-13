@@ -22,12 +22,11 @@ Images and associate metadata taken on this app are "hashed" to create a Content
   - Image file list with report status and thumbnail
   
 
-
 ## Installation
 Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
 
 ## Usage  
-Images are packaged with metadata including location, timestamp, photo purpose, user’s name, department, and phone id. All metadata is automatically populated (upon login and photo recording) except the photo purpose, which a user can set in the settings. Upon setting the purpose, (e.g. "vehicle 1 in traffic incident 56GFH") it will be packaged in the metadata for any following pictures taken.
+All information persisted on the blockchain is encrypted via the "Encryption Key" set in the Settings page. This key is used to decrypt the information later on the auditor side. [Assymetric encryption](https://en.wikipedia.org/wiki/Public-key_cryptography) is coming soon. Images are packaged with metadata including location, timestamp, photo purpose, investigation ID, user’s name, department, and phone model and unique ID. All metadata is automatically populated (upon photo recording) except the metadata sourced from user input in the Settings such as photo purpose, and investigation ID. Upon setting the purpose and investigation ID, this info will be packaged in the metadata for any following pictures taken. Users can view the status and thumbnail of images captured in the image file list page.
 
 While **online**:  
 Pictures are automatically uploaded to IPFS and the Content Identifier (CID - hash of the jpeg) is uploaded to the Ethereum Rinkeby network with accompanying metadata: time, location.
@@ -44,8 +43,7 @@ All pictures are stored in the user's default photo album for reference. Should 
 
 
 ## References  
-**Auditor image dashboard**: https://pinata.cloud/pinexplorer  
-**Ethereum contract address**: 0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
-**To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0xF939C4aDb36E9F3eE7Ee4Eca10B9A058ad018885  
+**Ethereum contract address**: 0x8385c076D8f78f1E6148853fbB27f12bC58e36EF  
+**To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0x8385c076D8f78f1E6148853fbB27f12bC58e36EF  
 **To see/download image with CID from above Ethereum contract**: https://gateway.pinata.cloud/ipfs/IMAGE_CID_HERE  
 
