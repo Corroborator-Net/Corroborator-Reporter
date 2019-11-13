@@ -1,5 +1,22 @@
 # Corroborator-Reporter
 
+
+## Features  
+  - High quality image and metadata capture, fingerprinting, and persistence via immutable distributed ledger technology
+  - Metadata included in the JPEG:
+    -  Capture time via [TrueTime](https://github.com/instacart/TrueTime.swift)
+    -  GPS information via Device [Location services](https://developer.apple.com/documentation/corelocation/cllocationmanager)
+    -  Department, photo purpose, investigation ID, user's name via user input in Settings
+    -  Unique device ID and model via Apple [API1](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) and [API2](https://developer.apple.com/documentation/foundation/processinfo/1417911-environment)
+  - 3rd-party verifiable time of image recording via Ethereum [block timestamp](https://rinkeby.etherscan.io/blocks)
+  - Fingerpriting via IPFS [CID](https://docs.ipfs.io/guides/concepts/cid/)
+  - Fingerprint persistence via [Ethereum distributed ledger](https://ethereum.org/beginners/)
+  - Optional decentralized, peer-to-peer, serverless, image storage on [IPFS](https://ipfs.io/)
+  - Optional secure image storage via device internal application storage
+  - Image transfer via Itunes Application File Sharing
+  - Image file list with reporting feedback and thumbnail
+  
+
 **Image recording and fingerprinting app for forensic evidence verification.**  
 
 Images and associate metadata taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time, etc.) changed, the CID producted from the edited image will differ from the original. The image is uploaded to the InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and CID published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
@@ -10,7 +27,7 @@ Images and associate metadata taken on this app are "hashed" to create a Content
 ## Installation
 Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
 
-## Usage. 
+## Usage  
 Images are packaged with metadata including location, timestamp, photo purpose, user’s name, department, and phone id. All metadata is automatically populated (upon login and photo recording) except the photo purpose, which a user can set in the settings. Upon setting the purpose, (e.g. "vehicle 1 in traffic incident 56GFH") it will be packaged in the metadata for any following pictures taken.
 
 While **online**:  
