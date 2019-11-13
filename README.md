@@ -11,9 +11,9 @@
   - Image fingerpriting via IPFS [CID](https://docs.ipfs.io/guides/concepts/cid/)
   - Fingerprint persistence via [Ethereum distributed ledger](https://ethereum.org/beginners/)
   - Optional decentralized, peer-to-peer, serverless, image storage on [IPFS](https://ipfs.io/)
-  - Optional secure image storage via device internal application storage
+  - Optional secure image storage via device application storage with preview via user's Camera Roll
   - Image transfer via Itunes Application File Sharing
-  - Image file list with reporting feedback and thumbnail
+  - Image file list with report status and thumbnail
   
 
 **Image recording and fingerprinting app for forensic evidence verification.**  
