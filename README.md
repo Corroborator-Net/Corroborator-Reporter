@@ -2,14 +2,13 @@
 
 
 ## Features  
-  - High quality image and metadata capture, fingerprinting, and persistence via immutable distributed ledger technology
-  - Metadata included in the JPEG:
+  - High quality image capture included with JPEG metadata:
     -  Capture time via [TrueTime](https://github.com/instacart/TrueTime.swift)
     -  GPS information via Device [Location services](https://developer.apple.com/documentation/corelocation/cllocationmanager)
     -  Department, photo purpose, investigation ID, user's name via user input in Settings
     -  Unique device ID and model via Apple [API1](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) and [API2](https://developer.apple.com/documentation/foundation/processinfo/1417911-environment)
   - 3rd-party verifiable time of image recording via Ethereum [block timestamp](https://rinkeby.etherscan.io/blocks)
-  - Fingerpriting via IPFS [CID](https://docs.ipfs.io/guides/concepts/cid/)
+  - Image fingerpriting via IPFS [CID](https://docs.ipfs.io/guides/concepts/cid/)
   - Fingerprint persistence via [Ethereum distributed ledger](https://ethereum.org/beginners/)
   - Optional decentralized, peer-to-peer, serverless, image storage on [IPFS](https://ipfs.io/)
   - Optional secure image storage via device internal application storage
