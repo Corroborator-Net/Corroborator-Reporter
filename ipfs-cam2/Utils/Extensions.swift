@@ -19,6 +19,8 @@ extension CLLocation {
         let latitudeRef = self.coordinate.latitude < 0.0 ? "S" : "N"
         let longitudeRef = self.coordinate.longitude < 0.0 ? "W" : "E"
         
+        let now = Constants.NTPClient!.referenceTime!.now()
+        
         // GPS metadata
         GPSMetadata[(kCGImagePropertyGPSLatitude as String)] = abs(self.coordinate.latitude)
         GPSMetadata[(kCGImagePropertyGPSLongitude as String)] = abs(self.coordinate.longitude)
@@ -26,8 +28,8 @@ extension CLLocation {
         GPSMetadata[(kCGImagePropertyGPSLongitudeRef as String)] = longitudeRef
         GPSMetadata[(kCGImagePropertyGPSAltitude as String)] = Int(abs(self.altitude))
         GPSMetadata[(kCGImagePropertyGPSAltitudeRef as String)] = altitudeRef
-        GPSMetadata[(kCGImagePropertyGPSTimeStamp as String)] = self.timestamp.isoTime()
-        GPSMetadata[(kCGImagePropertyGPSDateStamp as String)] = self.timestamp.isoDate()
+        GPSMetadata[(kCGImagePropertyGPSTimeStamp as String)] = now.isoTime()
+        GPSMetadata[(kCGImagePropertyGPSDateStamp as String)] = now.isoDate()
         GPSMetadata[(kCGImagePropertyGPSVersion as String)] = "2.2.0.0"
         
         if let heading = heading {

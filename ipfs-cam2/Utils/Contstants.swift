@@ -8,8 +8,11 @@
 
 import Foundation
 import CoreGraphics
-
+import TrueTime
 class Constants:NSObject{
+    
+    static var NTPClient:TrueTimeClient?
+    
     static let quality:CGFloat = 0.7
     static let FileNameDateFormat = "dd MMM yyyy HH:mm:ss"
     

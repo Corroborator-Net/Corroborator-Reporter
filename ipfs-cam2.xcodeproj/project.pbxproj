@@ -44,6 +44,7 @@
 		C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */; };
 		C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */; };
 		C5AD227C2340419100AF2864 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD227B2340419100AF2864 /* Network.swift */; };
+		C5B16C7F237CB477001B1356 /* TrueTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B16C7E237CB477001B1356 /* TrueTime.framework */; };
 		C5C00728236C966100E0F8F9 /* ExifCommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C00727236C966100E0F8F9 /* ExifCommentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewController.swift; sourceTree = "<group>"; };
 		C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		C5AD227B2340419100AF2864 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C5B16C7E237CB477001B1356 /* TrueTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrueTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C00727236C966100E0F8F9 /* ExifCommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExifCommentData.swift; sourceTree = "<group>"; };
 		CA058D8E12FAB7E5519790A6 /* Pods-ipfs-cam2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipfs-cam2.release.xcconfig"; path = "Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2.release.xcconfig"; sourceTree = "<group>"; };
 		E053AC65C2896FA0FD062904 /* Pods-ipfs-cam2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipfs-cam2.debug.xcconfig"; path = "Target Support Files/Pods-ipfs-cam2/Pods-ipfs-cam2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B16C7F237CB477001B1356 /* TrueTime.framework in Frameworks */,
 				C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */,
 				100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */,
 				C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */,
@@ -164,6 +167,7 @@
 		5C73C595A70096BAF9E183CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5B16C7E237CB477001B1356 /* TrueTime.framework */,
 				C5947ABD2340307D00720E7A /* Alamofire.framework */,
 				C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */,
 				C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */,

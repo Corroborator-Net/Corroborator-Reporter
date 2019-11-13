@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import TrueTime
+
 
 
 class ParentViewController: UIViewController, PageChangeReactor {
@@ -29,7 +31,11 @@ class ParentViewController: UIViewController, PageChangeReactor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SettingsVC.LoadSavedUserValues() 
+        SettingsVC.LoadSavedUserValues()
+        Constants.NTPClient = TrueTimeClient.sharedInstance
+        Constants.NTPClient!.start()
+        
+        
         // Do any additional setup after loading the view.
         buttons = [SettingsButton, CameraButton, FilesButton]
         for i in 0...buttons.count-1 {
