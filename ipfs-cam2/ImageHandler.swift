@@ -71,14 +71,17 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
         let imageMetadataDictionary = NSMutableDictionary()
 
         // add GPS metadata
-        let metadataGPS = (CameraViewController.locationManager?.location!.exifMetadata())!
+        let location = CameraViewController.locationManager?.location!
+        let metadataGPS = location!.exifMetadata()
         imageMetadataDictionary[(kCGImagePropertyGPSDictionary as String)] = metadataGPS
         
         // add our own data
         let arbitraryData = NSMutableDictionary()
+        let now = Constants.NTPClient!.referenceTime!.now()
 
         let commentData = ExifComment(
-            device_id: UIDevice.current.identifierForVendor!.uuidString, department: "Los Angeles Police Deparment", purpose: SettingsVC.CurrentPhotoPurpose, device_model: modelIdentifier(), user_name: "Ian P", investigation_id:SettingsVC.CurrentInvestigationID);
+            device_id: UIDevice.current.identifierForVendor!.uuidString, department: SettingsVC.Department, purpose: SettingsVC.CurrentPhotoPurpose, device_model: modelIdentifier(), user_name: SettingsVC.UserName, investigation_id:SettingsVC.CurrentInvestigationID,
+            time_stamp:now.isoTime(), date_stamp: now.isoDate(), GPS_Horizontal_Error: String(format:"%f", location!.horizontalAccuracy) + " meters" );
         
         let jsonData = try! JSONEncoder().encode(commentData)
         let jsonString = String(data: jsonData, encoding: .utf8)!

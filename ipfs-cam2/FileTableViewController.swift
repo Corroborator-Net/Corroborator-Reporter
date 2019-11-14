@@ -143,10 +143,13 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let extraSpaceForNewImages = 10
+        var extraSpaceForNewImages = 0
         if (syncedFileList.count<=0){
             syncedFileList = DataManager.GetSyncedFiles()
             offlineFileList = DataManager.GetUnSyncedFiles()
+        }
+        if (syncedFileList.count<=0){
+            extraSpaceForNewImages = 14
         }
         
         return offlineFileList.count + syncedFileList.count + extraSpaceForNewImages

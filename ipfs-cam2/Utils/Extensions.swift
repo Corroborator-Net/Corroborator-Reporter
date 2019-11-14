@@ -10,7 +10,16 @@ import CoreImage
 import UIKit
 
 
+extension String {
+      func toJSON() -> Any? {
+          guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+          return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+      }
+  }
+
 extension CLLocation {
+    
+  
     
     func exifMetadata(heading: CLHeading? = nil) -> NSMutableDictionary {
         
@@ -19,8 +28,7 @@ extension CLLocation {
         let latitudeRef = self.coordinate.latitude < 0.0 ? "S" : "N"
         let longitudeRef = self.coordinate.longitude < 0.0 ? "W" : "E"
         
-        let now = Constants.NTPClient!.referenceTime!.now()
-        let gpsError = self.horizontalAccuracy
+//        let gpsError = self.horizontalAccuracy
         
         // GPS metadata
         GPSMetadata[(kCGImagePropertyGPSLatitude as String)] = abs(self.coordinate.latitude)
@@ -29,10 +37,11 @@ extension CLLocation {
         GPSMetadata[(kCGImagePropertyGPSLongitudeRef as String)] = longitudeRef
         GPSMetadata[(kCGImagePropertyGPSAltitude as String)] = Int(abs(self.altitude))
         GPSMetadata[(kCGImagePropertyGPSAltitudeRef as String)] = altitudeRef
-        GPSMetadata[(kCGImagePropertyGPSTimeStamp as String)] = now.isoTime()
-        GPSMetadata[(kCGImagePropertyGPSDateStamp as String)] = now.isoDate()
+//        let now = Constants.NTPClient!.referenceTime!.now()
+//        GPSMetadata[(kCGImagePropertyGPSTimeStamp as String)] = now.isoTime()
+//        GPSMetadata[(kCGImagePropertyGPSDateStamp as String)] = now.isoDate()
         GPSMetadata[(kCGImagePropertyGPSVersion as String)] = "2.2.0.0"
-        GPSMetadata[(kCGImagePropertyGPSHPositioningError as String)] =  gpsError
+//        GPSMetadata[(kCGImagePropertyGPSHPositioningError as String)] =  gpsError
         
         if let heading = heading {
             GPSMetadata[(kCGImagePropertyGPSImgDirection as String)] = heading.trueHeading
@@ -55,7 +64,7 @@ extension Date {
     func isoTime() -> String {
         let f = DateFormatter()
         f.timeZone = TimeZone(abbreviation: "UTC")
-        f.dateFormat = "HH:mm:ss.SSSSSS"
+        f.dateFormat = "HH:mm:ss"
         return f.string(from: self)
     }
 }

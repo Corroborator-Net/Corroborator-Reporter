@@ -37,6 +37,9 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
     static public var UserEncryptionKey:String = ""
     static public var CurrentPhotoPurpose:String = ""
     static public var CurrentInvestigationID:String = ""
+    static public var Department:String = ""
+    static public var UserName:String = ""
+
     static public var UploadToAuditorNode:Bool = false
     static public var DeleteLocalPhotos:Bool = false
     static private var LoadedVariables:Bool = false
@@ -47,7 +50,10 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
     @IBOutlet weak var EncryptionKeyField: UITextField!
     @IBOutlet weak var PurposeField: UITextField!
     @IBOutlet weak var InvestigationIDField: UITextField!
+   
+    @IBOutlet weak var DepartmentField: UITextField!
     
+    @IBOutlet weak var NameField: UITextField!
     // switches
     @IBOutlet weak var UploadToAuditorSwitch: UISwitch!
     @IBOutlet weak var DeletePhotosSwitch: UISwitch!
@@ -70,6 +76,8 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
         CurrentPhotoPurpose = UserDefaults.standard.string(forKey: Constants.CurrentPhotoPurposeKey) ?? ""
         CurrentInvestigationID = UserDefaults.standard.string(forKey: Constants.CurrentInvestigationIDKey) ?? ""
         UserEncryptionKey = UserDefaults.standard.string(forKey: Constants.UserEncryptionKeyKey) ?? Constants.UserDefaultEncryptionKey
+        UserName = UserDefaults.standard.string(forKey: Constants.UserNameKey) ?? "Bob Ross"
+        Department = UserDefaults.standard.string(forKey: Constants.UserDepartmentKey) ?? "Los Angeles Police Department"
         
         if (UserDefaults.standard.object(forKey: Constants.UploadToAuditorNodeKey)
             != nil){
@@ -105,6 +113,8 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
         PurposeField.text = SettingsVC.CurrentPhotoPurpose
         InvestigationIDField.text = SettingsVC.CurrentInvestigationID
         EncryptionKeyField.text = SettingsVC.UserEncryptionKey
+        NameField.text = SettingsVC.UserName
+        DepartmentField.text = SettingsVC.Department
         
         // switches
         UploadToAuditorSwitch.isOn = SettingsVC.UploadToAuditorNode
@@ -133,6 +143,12 @@ class SettingsVC: UIViewController,  ImageFileHandler, UITextFieldDelegate{
         PurposeField.text = SettingsVC.CurrentPhotoPurpose
     }
     
+    @IBAction func NameFieldEdited(_ sender: Any) {
+        
+    }
+    @IBAction func DepartmentFieldEdited(_ sender: Any) {
+        
+    }
     
     @IBAction func PhotoPurposeEdited(_ sender: Any) {
         let label = sender as! UITextField

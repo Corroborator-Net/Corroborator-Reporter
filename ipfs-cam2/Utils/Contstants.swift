@@ -16,7 +16,9 @@ class Constants:NSObject{
     static let quality:CGFloat = 0.7
     static let FileNameDateFormat = "dd MMM yyyy HH:mm:ss"
     
-    static let DTableID = "c396cfc4-c77f-4a76-bfea-fb67e2f53701"
+    static let DTableID = "a333b349-b6f3-4716-b39d-9a734e4971f5"
+    static let UserNameKey = "UserName"
+    static let UserDepartmentKey = "UserDepartment"
     static let UserDefaultEncryptionKey = "superSecretKey"
     static let UserEncryptionKeyKey = "UserEncryptionKey"
     static let DeleteLocalPhotosKey = "DeleteLocalPhotos"

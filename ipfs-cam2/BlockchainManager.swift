@@ -29,7 +29,6 @@ class BlockchainManager{
                                   Encrypt(plainText: location, key: key),
                                   Encrypt(plainText: SettingsVC.GetStorageLocationLiteral(), key: key)]
     
-        
         let parameters: Parameters = [ "tableId" : Constants.DTableID, "record" :  records]
         let urlString = "https://api.atra.io/prod/v1/dtables/records"
         let headers: HTTPHeaders = ["x-api-key": "vdssu05AWO6yAG4ojL4Sv6I9RkAGCak19hBhTVpm"]
@@ -50,11 +49,13 @@ class BlockchainManager{
         let source: CGImageSource = CGImageSourceCreateWithData(((image as! CFMutableData)), nil)!
         let metadata = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [AnyHashable: Any]
         let gps = metadata![(kCGImagePropertyGPSDictionary as String)] as! [AnyHashable: Any]
-        let datestamp = gps[(kCGImagePropertyGPSDateStamp)] as! String
+
+        let comment = (metadata![kCGImagePropertyExifDictionary]! as! [AnyHashable:Any])[kCGImagePropertyExifUserComment] as! String
+        let json = comment.toJSON() as! [String:String]
+        let datestamp = json["date_stamp"]!
         let formattedDate = datestamp.replacingOccurrences(of: ":", with: "-") + "T"
-        let timestamp = gps[(kCGImagePropertyGPSTimeStamp)] as! String +
-            TimeZone.current.offsetFromUTC()
-        let formattedDateAndTime = formattedStringFromStringDate(isoDate: formattedDate+timestamp)
+        let timestamp = json["time_stamp"]! + TimeZone.current.offsetFromUTC()
+        let formattedDateAndTime = formattedStringFromStringDate(isoDate: formattedDate + timestamp)
         
         let lat = gps[(kCGImagePropertyGPSLatitude as String)] as! NSNumber
         let long = gps[(kCGImagePropertyGPSLongitude as String)] as! NSNumber
@@ -80,7 +81,7 @@ class BlockchainManager{
         
         let cipherText = cryptLib.encryptPlainTextRandomIV(withPlainText: plainText, key: key)
 //        print("cipherText \(cipherText! as String)")
-        
+//
 //        let decryptedString = cryptLib.decryptCipherTextRandomIV(withCipherText: cipherText, key: key)
 //        print("decryptedString \(decryptedString! as String)")
         return cipherText!
