@@ -86,9 +86,6 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
         // set the comment
         arbitraryData[(kCGImagePropertyExifUserComment as String)] = jsonString
 
-        // add in the device ID
-//        arbitraryData[(kCGImagePropertyExifCameraOwnerName)] =        UIDevice.current.identifierForVendor?.uuidString
-
         // load arbitrary data into our final metadata dictionary
         imageMetadataDictionary[(kCGImagePropertyExifDictionary as String)] = arbitraryData
     

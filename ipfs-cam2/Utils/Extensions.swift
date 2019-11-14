@@ -20,6 +20,7 @@ extension CLLocation {
         let longitudeRef = self.coordinate.longitude < 0.0 ? "W" : "E"
         
         let now = Constants.NTPClient!.referenceTime!.now()
+        let gpsError = self.horizontalAccuracy
         
         // GPS metadata
         GPSMetadata[(kCGImagePropertyGPSLatitude as String)] = abs(self.coordinate.latitude)
@@ -31,6 +32,7 @@ extension CLLocation {
         GPSMetadata[(kCGImagePropertyGPSTimeStamp as String)] = now.isoTime()
         GPSMetadata[(kCGImagePropertyGPSDateStamp as String)] = now.isoDate()
         GPSMetadata[(kCGImagePropertyGPSVersion as String)] = "2.2.0.0"
+        GPSMetadata[(kCGImagePropertyGPSHPositioningError as String)] =  gpsError
         
         if let heading = heading {
             GPSMetadata[(kCGImagePropertyGPSImgDirection as String)] = heading.trueHeading
