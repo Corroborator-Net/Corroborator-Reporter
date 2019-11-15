@@ -4,7 +4,7 @@
 
 Images and associate metadata taken on this app are "hashed" to create a Content Identified (CID), or a digital fingerprint of the image and metadata. If a **pixel** is changed in the image, or **any** metadata (location, time, etc.) changed, the CID producted from the edited image will differ from the original. The image is uploaded to the InterPlanetary File Storage (IPFS - a distributed, decentralized storage protocol), and CID published to the Ethereum Rinkeby network, an immutable, decentralized blockchain.
 
-<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0433.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0434.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0251.png" width="200">  
+<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0683.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0684.png" width="200"> <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_0685.png" width="200">  
 
 
 ## Features  
@@ -23,7 +23,7 @@ Images and associate metadata taken on this app are "hashed" to create a Content
   
 
 ## Installation
-Connect an iPhone with iOS version 12+, using Xcode version 10.3 open the `.xcworkspace`, and hit run.
+Connect an iPhone with iOS version 13, using Xcode version 11 open the `.xcworkspace`, and hit run.
 
 ## Usage  
 All information persisted on the blockchain is encrypted via the "Encryption Key" set in the Settings page. This key is used to decrypt the information later on the auditor side. [Assymetric encryption](https://en.wikipedia.org/wiki/Public-key_cryptography) is coming soon. Images are packaged with metadata including location, timestamp, photo purpose, investigation ID, user’s name, department, and phone model and unique ID. All metadata is automatically populated (upon photo recording) except the metadata sourced from user input in the Settings such as photo purpose, and investigation ID. Upon setting the purpose and investigation ID, this info will be packaged in the metadata for any following pictures taken. Users can view the status and thumbnail of images captured in the image file list page.
