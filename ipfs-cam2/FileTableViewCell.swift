@@ -29,7 +29,6 @@ class FileTableViewCell: UITableViewCell {
     
     public func MarkAsUploading(){
         StatusLabel.text = "uploading..."
-
     }
     
     public func MarkAsSynced(){

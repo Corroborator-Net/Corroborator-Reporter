@@ -11,7 +11,7 @@ import UIKit
 
 class DataManager: NSObject{
     
-    public static var CurrentlyUploading:[String] = []
+    public static var CurrentlyUploading:[CorroDataFile] = []
     
     private static let offlineKey:String = "offlineQueue"
     private static let syncedKey:String = "syncedFiles"
@@ -45,17 +45,21 @@ class DataManager: NSObject{
     
     public static func SetAsSynced(file:CorroDataFile){
         var newOfflineDictionary = GetUnSyncedFiles()
-        newOfflineDictionary.remove(at: newOfflineDictionary.firstIndex(where:
+        if let offlineIndex = newOfflineDictionary.firstIndex(where:
             {
                 (corroDataFile) -> Bool in
                     return corroDataFile.FileName == file.FileName
-        })!)
-        
-        if let index = CurrentlyUploading.firstIndex(of:file.FileName){
-            CurrentlyUploading.remove(at: index)
+        }){
+            newOfflineDictionary.remove(at: offlineIndex)
         }
-
-
+        
+        if let currentUploadIndex =  CurrentlyUploading.firstIndex(where:
+                   {
+                       (corroDataFile) -> Bool in
+                           return corroDataFile.FileName == file.FileName
+        }){
+            CurrentlyUploading.remove(at:currentUploadIndex)
+        }
         
         SaveNewFileList(files: newOfflineDictionary, key:offlineKey)
         

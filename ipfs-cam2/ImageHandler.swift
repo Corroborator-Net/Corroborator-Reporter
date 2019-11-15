@@ -58,7 +58,7 @@ class ImageHandler: NSObject, TWCameraViewDelegate{
             
             // if the user quits the app with this cache full of files, our local DB
             // will know they're still unsynced and will sync them on restart
-            DataManager.CurrentlyUploading.append(newSavedFile.FileName)
+            DataManager.CurrentlyUploading.append(newSavedFile)
             ImageHandler.uploadToIPFS(image: jpeg,
                                       file: newSavedFile,
                                       VC: nil)

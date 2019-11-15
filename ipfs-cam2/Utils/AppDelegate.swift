@@ -18,24 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-//        let repoPath = (documentsPath as NSString).appendingPathComponent("textile-repo-shared-with-desktop")
-//        
-//        if(!Textile.isInitialized(repoPath)) {
-////            var error: NSError?
-//            try! Textile.initialize(repoPath, seed: "SV6Tw77xk9ASqiZgFLtiNJDxJxUMXGBVT4pmoaeN9Sr1gNd2", debug: true, logToDisk: true)
-//
-////            let recoveryPhrase = Textile.initializeCreatingNewWalletAndAccount(repoPath, debug: false, logToDisk: false, error: &error)
-//            // Return phrase to the user for secure, out of app, storage
-//        }
-//        
-//        do {
-//            try Textile.launch(repoPath, debug: false)
-//        } catch {
-//            print("Textile didn't launch")
-//            // handle launch error
-//        }
-        
+
         // Override point for customization after application launch.
         return true
     }

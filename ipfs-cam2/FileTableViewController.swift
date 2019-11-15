@@ -12,18 +12,17 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
 
     var helloWorldTimer:Timer?
     let uploadFileTitle:String = "uploading..."
-    var currentFileToUploadIndex:Int = 0
+//    var currentFileToUploadIndex:Int = 0
     var offlineFileList:[CorroDataFile] = []
     var syncedFileList:[CorroDataFile] = []
     var currentlyUploading = false
+    var fileToRow:Dictionary<String,Int> = [String:Int]()
     
   
     public func RefreshCellRowsWithFileNames(){
         // check if unsynced files
         offlineFileList = DataManager.GetUnSyncedFiles()
         syncedFileList = DataManager.GetSyncedFiles()
-        
-        
         let lastIndex = PopulateRows(startAt: 0, files: offlineFileList)
         PopulateRows(startAt: lastIndex + 1, files: syncedFileList)
 
@@ -62,12 +61,16 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
 
         let currentFileToUpload = offlineFileList.last!
         
-        if (DataManager.CurrentlyUploading.contains(currentFileToUpload.FileName)){
+        if (DataManager.CurrentlyUploading.contains(where:
+            {
+                (corroDataFile) -> Bool in
+                return corroDataFile.FileName == currentFileToUpload.FileName
+        })){
             print("currently uploading")
             return
         }
         
-        currentFileToUploadIndex = offlineFileList.count-1
+        let currentFileToUploadIndex = offlineFileList.count-1
         // show user we're uploading file
         let cell =  tableView.cellForRow(at: IndexPath(row: currentFileToUploadIndex, section: 0)) as! FileTableViewCell
         cell.MarkAsUploading()
@@ -88,11 +91,34 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
     
     // Restarts file upload and removes uploaded file
     public func OnFileUploadFinish(file:CorroDataFile){
-
-        let cell =  tableView.cellForRow(at: IndexPath(row: currentFileToUploadIndex, section: 0)) as? FileTableViewCell
-        cell?.MarkAsSynced()
-        currentlyUploading=false
+        if let index = fileToRow.firstIndex(where:
+        {
+            (key, val) -> Bool in
+                return key == file.FileName
+        }){
+            let syncedFileIndex = fileToRow.remove(at: index).value
+            let cell =  tableView.cellForRow(at: IndexPath(row: syncedFileIndex, section: 0)) as? FileTableViewCell
+            cell?.MarkAsSynced()
+        }
         
+        
+        currentlyUploading=false
+        let numRows = tableView.numberOfRows(inSection: 0)
+        if ( numRows < TotalFileList()){
+            var indexPaths:[IndexPath] = []
+            let diff = TotalFileList() - numRows
+            // add another row to the bottom to offset the newly synced file
+            for i in 0...diff-1 {
+                indexPaths.append(IndexPath(row: numRows+i, section: 0))
+            }
+            tableView.beginUpdates()
+            tableView.insertRows(at: indexPaths, with: .automatic)
+            tableView.endUpdates()
+            
+        }
+        var syncedFile = file
+        syncedFile.Synced = true
+        syncedFileList.insert(syncedFile, at: 0)
         // start upoad process over again for next file in dict
         ReloadUnsyncedFilesAndStartUpload()
     }
@@ -104,8 +130,11 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
         }
         // populate rows with file names
         for i in 0...files.count-1 {
-            let cell =  tableView.cellForRow(at: IndexPath(row: startAt + i, section: 0)) as? FileTableViewCell
-            cell?.AddFileData(file: files[i])
+            let rowNum = startAt + i
+            let cell =  tableView.cellForRow(at: IndexPath(row: rowNum, section: 0)) as? FileTableViewCell
+            let file = files[i]
+            fileToRow[file.FileName] = rowNum
+            cell?.AddFileData(file: file)
         }
         return startAt + files.count - 1
     }
@@ -151,8 +180,13 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
         if (syncedFileList.count<=0){
             extraSpaceForNewImages = 14
         }
-        
-        return offlineFileList.count + syncedFileList.count + extraSpaceForNewImages
+        let rows =  TotalFileList() + extraSpaceForNewImages
+//        print(rows)
+        return rows
+    }
+    
+    private func TotalFileList()->Int{
+        return syncedFileList.count + offlineFileList.count
     }
 
 //
@@ -161,10 +195,15 @@ class FileTableViewController: UITableViewController, ImageFileHandler {
         cell.ClearFileData()
 
         if (indexPath.row < offlineFileList.count){
-            cell.AddFileData(file: offlineFileList[indexPath.row])
+            let file = offlineFileList[indexPath.row]
+            fileToRow[file.FileName] = indexPath.row
+            cell.AddFileData(file: file)
         }
-        else if(indexPath.row < syncedFileList.count){
-            cell.AddFileData(file: syncedFileList[indexPath.row])
+            
+        else if(indexPath.row < TotalFileList()){
+            let file = syncedFileList[indexPath.row - offlineFileList.count]
+            fileToRow[file.FileName] = indexPath.row
+            cell.AddFileData(file: file)
         }
         
         return cell
