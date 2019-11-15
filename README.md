@@ -46,9 +46,12 @@ Pictures are saved to the application's secure directory and their locations are
 ## Transferring Images to a Computer  
 In order to transfer an image on the device to a computer, use **Itunes file sharing** and **not** the photo roll as iOS makes changes to images saved to the photo roll (and therefore photo roll images will not pass the auditor PIP check). All photos are stored in the user's default photo album for reference **only**.  
 
-Steps: Connect your phone to your computer via USB. Open itunes and click on the phone icon in the top left. Under settings click on the File Sharing tab and the Corroborator Cam app. You'll see your list of images on the right.
+Steps: Connect your phone to your computer via USB. Open Itunes and click on the phone icon in the top left.  
 
 <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/Itunes_filesharing_mobile_icon.png" width="300">
+  
+Under settings click on the "File Sharing" tab and the "Corroborator Cam" app. You'll see your list of images on the right.
+  
 <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_filesharing2.png" width="300">
 
 
