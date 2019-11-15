@@ -49,7 +49,7 @@ In order to transfer an image on the device to a computer, use **Itunes file sha
 Steps: Connect your phone to your computer via USB. Open itunes and click on the phone icon in the top left. Under settings click on the File Sharing tab and the Corroborator Cam app. You'll see your list of images on the right.
 
 <img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/Itunes_filesharing_mobile_icon.png" width="300">
-<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_filesharing.png" width="300">
+<img src="https://github.com/Corroborator-Net/Corroborator-iOS/blob/master/IMG_filesharing2.png" width="300">
 
 
 
