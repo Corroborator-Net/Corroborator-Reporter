@@ -49,7 +49,7 @@ All pictures are stored in the user's default photo album for reference. Should 
 
 
 ## References  
-**Ethereum contract address**: 0x8385c076D8f78f1E6148853fbB27f12bC58e36EF  
-**To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0x8385c076D8f78f1E6148853fbB27f12bC58e36EF  
+**Ethereum contract address**: 0x97E7E10b7D408cc9232467B5E1Fc02A76E5960E1  
+**To see transactions sent to the contract**: https://rinkeby.etherscan.io/address/0x97E7E10b7D408cc9232467B5E1Fc02A76E5960E1 
 **To see/download image with CID from above Ethereum contract**: https://gateway.pinata.cloud/ipfs/IMAGE_CID_HERE  
 
