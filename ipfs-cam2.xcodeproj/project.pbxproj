@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */; };
+		C503B8A4237F976A00DF8852 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
+		C503B8A6237F976B00DF8852 /* TrueTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B16C7E237CB477001B1356 /* TrueTime.framework */; };
 		C5196EB1235A100C00FB2BB0 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5196EB0235A100C00FB2BB0 /* Contstants.swift */; };
 		C51EC65A233E723300CAF01F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EC659233E723300CAF01F /* AppDelegate.swift */; };
 		C51EC65F233E723300CAF01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51EC65D233E723300CAF01F /* Main.storyboard */; };
@@ -25,26 +26,10 @@
 		C591B2342374888000647457 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2332374888000647457 /* MainPageViewController.swift */; };
 		C591B2522374F09500647457 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B2512374F09500647457 /* ParentViewController.swift */; };
 		C591B2532374F2EE00647457 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = C591B24B2374EED900647457 /* CryptLib.m */; };
-		C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5947ABD2340307D00720E7A /* Alamofire.framework */; };
 		C5ACF716233E9DD700637EC3 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF715233E9DD700637EC3 /* ImageHandler.swift */; };
-		C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */; };
-		C5ACF71F233F1CFF00637EC3 /* SwiftIpfsApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */; };
-		C5ACF720233F1CFF00637EC3 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */; };
-		C5ACF721233F1CFF00637EC3 /* SwiftMultiaddr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */; };
-		C5ACF722233F1CFF00637EC3 /* SwiftMultihash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */; };
-		C5ACF723233F1CFF00637EC3 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */; };
-		C5ACF724233F1CFF00637EC3 /* VarInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACF71D233F1CFF00637EC3 /* VarInt.framework */; };
-		C5ACF726233F1F4C00637EC3 /* SwiftBase58.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF717233F1CFE00637EC3 /* SwiftBase58.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF727233F1F4C00637EC3 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71C233F1CFF00637EC3 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF728233F1F4C00637EC3 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF719233F1CFE00637EC3 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF729233F1F4C00637EC3 /* SwiftIpfsApi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF718233F1CFE00637EC3 /* SwiftIpfsApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF72A233F1F4C00637EC3 /* SwiftMultiaddr.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71A233F1CFE00637EC3 /* SwiftMultiaddr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF72B233F1F4C00637EC3 /* SwiftMultihash.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71B233F1CFF00637EC3 /* SwiftMultihash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5ACF72C233F1F4C00637EC3 /* VarInt.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5ACF71D233F1CFF00637EC3 /* VarInt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5ACF72E2340133B00637EC3 /* FileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72D2340133B00637EC3 /* FileTableViewController.swift */; };
 		C5ACF7302340139400637EC3 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ACF72F2340139400637EC3 /* FileTableViewCell.swift */; };
 		C5AD227C2340419100AF2864 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD227B2340419100AF2864 /* Network.swift */; };
-		C5B16C7F237CB477001B1356 /* TrueTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B16C7E237CB477001B1356 /* TrueTime.framework */; };
 		C5C00728236C966100E0F8F9 /* ExifCommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C00727236C966100E0F8F9 /* ExifCommentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,25 +49,6 @@
 			remoteInfo = "ipfs-cam2";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C5ACF725233F1F2D00637EC3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C5ACF726233F1F4C00637EC3 /* SwiftBase58.framework in CopyFiles */,
-				C5ACF727233F1F4C00637EC3 /* SwiftGMP.framework in CopyFiles */,
-				C5ACF728233F1F4C00637EC3 /* SwiftHex.framework in CopyFiles */,
-				C5ACF729233F1F4C00637EC3 /* SwiftIpfsApi.framework in CopyFiles */,
-				C5ACF72A233F1F4C00637EC3 /* SwiftMultiaddr.framework in CopyFiles */,
-				C5ACF72B233F1F4C00637EC3 /* SwiftMultihash.framework in CopyFiles */,
-				C5ACF72C233F1F4C00637EC3 /* VarInt.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ACCBD6A9B0FB96AC5F2E9D58 /* Pods_ipfs_cam2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipfs_cam2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,16 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5B16C7F237CB477001B1356 /* TrueTime.framework in Frameworks */,
-				C5947ABE2340307D00720E7A /* Alamofire.framework in Frameworks */,
-				100B77EEA161CF0F5C40E56A /* Pods_ipfs_cam2.framework in Frameworks */,
-				C5ACF71E233F1CFF00637EC3 /* SwiftBase58.framework in Frameworks */,
-				C5ACF71F233F1CFF00637EC3 /* SwiftIpfsApi.framework in Frameworks */,
-				C5ACF720233F1CFF00637EC3 /* SwiftHex.framework in Frameworks */,
-				C5ACF721233F1CFF00637EC3 /* SwiftMultiaddr.framework in Frameworks */,
-				C5ACF722233F1CFF00637EC3 /* SwiftMultihash.framework in Frameworks */,
-				C5ACF723233F1CFF00637EC3 /* SwiftGMP.framework in Frameworks */,
-				C5ACF724233F1CFF00637EC3 /* VarInt.framework in Frameworks */,
+				C503B8A4237F976A00DF8852 /* Alamofire.framework in Frameworks */,
+				C503B8A6237F976B00DF8852 /* TrueTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +254,6 @@
 				C51EC653233E723300CAF01F /* Frameworks */,
 				C51EC654233E723300CAF01F /* Resources */,
 				1DF2F0A675DD95B6FC3A3F6C /* [CP] Embed Pods Frameworks */,
-				C5ACF725233F1F2D00637EC3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -654,8 +611,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				DEVELOPMENT_TEAM = RRRMTF5JFM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,12 +626,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluealloylabs.corroborator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ipfs-cam2/ipfs-cam2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -683,8 +642,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FJNBF4B8MJ;
+				DEVELOPMENT_TEAM = RRRMTF5JFM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -697,11 +657,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ian.ipfs-cam2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluealloylabs.corroborator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ipfs-cam2/ipfs-cam2-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
