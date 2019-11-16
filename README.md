@@ -27,7 +27,7 @@ Images and associate metadata taken on this app are "hashed" to create a Content
   
 
 ## Installation
-Connect an iPhone with iOS version 13, using Xcode version 11 open the `.xcworkspace`, and hit run.
+If a tech to protect reviewer, email iansphilips@gmail.com to be added as a test user on Apple TestFlight and download the compiled app. Otherwise, connect an iPhone with iOS version 13, using Xcode version 11 open the `.xcworkspace`, and hit run.
 
 ## Usage  
 All information persisted on the blockchain is encrypted via the "Encryption Key" field in the Settings page. This key is used to decrypt the information later on the auditor side. [Assymetric encryption](https://en.wikipedia.org/wiki/Public-key_cryptography) is coming soon.  
